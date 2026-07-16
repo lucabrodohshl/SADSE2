@@ -118,20 +118,26 @@ Determinism: fixed seeds; the same M0 cache reused across baselines for fair com
 
 ```
 src/crr/{__init__,model,certificate,refinement,reverse_index,revalidation,baselines,metrics}.py
+src/crr/{simplex,branch_and_bound}.py       # self-contained LP/MILP engine (warm dual-simplex)
 evaluate/experiments/{crr_efficiency,crr_correctness,crr_sensitivity}.py
 evaluate/reporting/crr_figures.py           # pgf+png figures + LaTeX tables -> results/reports
 evaluate/tests/test_crr.py                  # unit + soundness (CRR == ground truth)
+evaluate/tests/test_simplex.py              # LP/dual-simplex/B&B validated vs scipy
 results/crr/…                               # JSON/CSV kept; figures gitignored
 docs/evaluation.md + docs/evaluation.tex    # written Evaluation section (drop-in)
 ```
 
 ## 6. Fidelity, assumptions, honesty
 
-- Real task-assignment MILP throughout; PuLP + CBC (verified available).
-- **S3 proxy:** PuLP has no true warm dual-simplex, so S3 re-solves the LP relaxation
-  of the confined subproblem — a faithful "cheap, no-branching" repair. The stage
-  *logic* and the **MILP-call reduction (the headline metric)** are real. Solver-call
-  accounting always separates none/arith/LP/MILP so nothing is hidden.
+- Real task-assignment MILP throughout, solved by a **self-contained engine**
+  (`src/crr/simplex.py` bounded-variable primal/dual simplex + `branch_and_bound.py`),
+  validated against `scipy.optimize.linprog`/`milp`. **No external solver.**
+- **S3 is a true warm dual-simplex** (supersedes the earlier proxy): the stored
+  basis warm-starts a dual-simplex re-optimization after the battery RHS tightens
+  (~22x fewer pivots than cold); Stage 4 is warm-started branch-and-bound.
+  Solver-call accounting separates none/arith/warm-LP/B&B. The engine is
+  correctness-focused, so wall-clock ~1x on small instances; reported metrics are
+  algorithmic (solver-call and pivot reduction).
 - Certificates are **exact** where the model allows (Type II feasibility/support-fn,
   Type III reduced-cost margin vs. ε(Z_e), Type I reduced-cost sign); documented as
   such. τ_req = 0 (exact optimality) is the default; τ_req > 0 supported.

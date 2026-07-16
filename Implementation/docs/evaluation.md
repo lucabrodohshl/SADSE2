@@ -3,8 +3,8 @@
 We evaluate Certified Refinement Revalidation (CRR) against three research
 questions:
 
-- **RQ1 (Efficiency).** When the optimization model is refined, how much does CRR
-  reduce invocations of the expensive MILP optimizer relative to full cache
+- **RQ1 (Efficiency).** When the optimization model is refined, how effectively
+  does CRR reduce invocations of the expensive optimizer relative to full cache
   revalidation (re-solving every entry)?
 - **RQ2 (Correctness).** Does CRR preserve exact optimality under the evolved
   model, and what does the prior *no-revalidation* approach cost?
@@ -14,34 +14,32 @@ questions:
 ## Setup
 
 We implement CRR on the fleet task-assignment MILP of the running example: a
-fleet of *M* drones must cover *J* tasks under a chosen configuration *k*
-(speed, altitude, camera resolution), minimizing total fleet energy subject to a
+fleet of *M* drones covers *J* tasks under a chosen configuration *k* (speed,
+altitude, camera resolution), minimizing total fleet energy subject to a
 per-agent battery-reserve budget `usable = (1-reserve)·capacity/safety`. Energy
 is agent-independent, so the objective is configuration-determined
-(`value = min_k Σ_j E[k,j]`) while the battery budget couples the choice of
-configuration to a bin-packing task assignment — tightening the budget can render
-the cheapest configuration infeasible and force a costlier one.
+(`value = min_k Σ_j E[k,j]`) while the battery budget couples the configuration
+choice to a bin-packing task assignment: tightening the budget can render the
+cheapest configuration infeasible and force a costlier one.
 
-A cache is populated under the base model M0 by solving one proven-optimal entry
-per operating regime (ODD), modelled as a wind factor scaling energy from *calm*
-to *strong crosswinds*; each entry is enriched with its certificate (assignment,
-per-agent loads, optimality margin), a dependency set, and validity ranges, and
-inserted into the dependency reverse index. We then apply the three model
-refinements of the paper and revalidate:
+**A self-contained optimization engine.** So that CRR's Stage-3 *warm
+dual-simplex* is real rather than emulated, the entire pipeline runs on a
+from-scratch solver — a bounded-variable **primal/dual revised simplex**
+(`src/crr/simplex.py`) and an LP-relaxation **branch-and-bound** with
+warm-started dual-simplex children (`src/crr/branch_and_bound.py`). Both are
+validated against `scipy.optimize.linprog`/`milp` over randomized instances (120
+oracle tests). **No external MILP solver is used.** Stage 3 warm-starts the dual
+simplex from each entry's stored basis; Stage 4 is the branch-and-bound.
 
-- **Type II** — a tightened battery-reserve constraint (regulation);
-- **Type III** — a tighter objective linearization (the residual added back);
-- **Type I** — a new environmental factor (humidity) entering the energy model.
-
-**Baselines.** *Full revalidation* re-solves the MILP for every entry (the naive
-upper bound of *N* solves) and serves as the optimality ground truth; *no
-revalidation* keeps the M0 cache unchanged, quantifying the cost of staleness.
-
-**Metrics.** We record, per revalidation, the distribution of entries across the
-four stages (S1 reuse / S2 certificate / S3 repair / S4 re-solve), the number of
-expensive MILP re-solves, wall-clock time, and — against the ground truth — the
-optimality gap. All experiments are deterministic (fixed seeds), running from the
-`Implementation/` root:
+A cache is populated under the base model M0 with one proven-optimal entry per
+operating regime (ODD), modelled as a wind factor scaling energy from *calm* to
+*strong*; each entry is enriched with its certificate, dependency set, validity
+ranges, and the bin-packing LP **basis** used to warm-start repairs, and inserted
+into the dependency reverse index. We then apply the three refinements — Type II
+(tightened battery reserve), Type III (tighter objective linearization), Type I (a
+new humidity factor) — and revalidate. Baselines: *full revalidation* (re-solve
+every entry; the naive N-solve upper bound and optimality ground truth) and *no
+revalidation* (the stale M0 cache). All runs are deterministic.
 
 ```
 python -m evaluate.experiments.crr_efficiency     # RQ1
@@ -54,80 +52,85 @@ python -m evaluate.reporting.crr_figures          # figures + tables
 
 On a cache of **N = 16** entries, a representative refinement of each type is
 revalidated with **zero** MILP re-solves (Table `crr_summary`), a **100%**
-reduction versus full revalidation, at exact optimality. The entries are
-discharged through the cheap stages: for the moderate Type-II tightening,
-6 entries certify directly (S2) and 10 are repaired by a fixed-configuration
-re-assignment (S3, an LP-class solve); for Type III and Type I all 16 entries
-certify at S2.
+reduction versus full revalidation, at exact optimality. Entries are discharged
+through the cheap stages: for the moderate Type-II tightening, 1 entry certifies
+directly (S2) and 15 are repaired by a warm dual-simplex re-assignment (S3);
+Types III and I split across S2 and S3 with no re-solve.
 
 As refinement **severity** grows, the population escalates through the
-cost-ordered stages exactly as designed (Fig. `crr_stage_distribution`). For
-Type II the stage split moves `S2/S3/S4 = 16/0/0 → 6/10/0 → 4/6/6 → 1/3/12` as
-the reserve tightens from 0.30 to 0.78, and the MILP-call reduction degrades
-gracefully from **100%** to **25%** — CRR invokes the optimizer only for the
-entries whose integer optimum genuinely changed, and **never does worse than full
-revalidation** (Fig. `crr_milp_reduction`). Type III stays at **100%** reduction
-across the whole severity range: a tighter objective linearization preserves the
-configuration ranking, so every entry's optimum is corrected by an arithmetic
-certificate (S2) or a warm repair (S3) — never a re-solve. Wall-clock speedups
-for the representative refinements range from **2.6×** (Type II, repair-heavy) to
-over **400×** (Type III/I, certificate-only).
+cost-ordered stages (Fig. `crr_stage_distribution`). For Type II the split moves
+`S2/S3/S4 = 10/6/0 → 1/15/0 → 0/10/6 → 0/4/12` as the reserve tightens from 0.30
+to 0.78, and the re-solve reduction degrades gracefully from **100% to 25%** — CRR
+invokes the optimizer only for the entries whose *integer optimum (configuration)*
+genuinely changed, and **never does worse than full revalidation**
+(Fig. `crr_milp_reduction`). Type III holds at **100%** reduction across the whole
+severity range: a tighter objective linearization preserves the configuration
+ranking, so every optimum is corrected by an arithmetic certificate (S2) or a warm
+re-assignment (S3), never a re-solve.
+
+**Warm dual-simplex.** The Stage-3 repairs are the paper's cut-warmed repair made
+concrete: the stored basis warm-starts a dual-simplex re-optimization of the
+bin-packing LP after the battery RHS tightens. Across the Type-II severity sweep
+the warm re-solves take **132 pivots in total versus 2 971 for cold solves — a
+22× reduction** (Fig. `crr_pivots`; e.g. 22 vs 762 pivots at reserve = 0.54).
+Because the warm basis is already dual-feasible, its pivot count barely grows with
+problem size while the cold count climbs (RQ3), so the warm-start advantage widens
+with scale.
 
 ## RQ2 — Correctness
 
-Across **all 15** refinement points (three types × five severities), CRR's
-revalidated cache is **sound**: the maximum optimality gap against the
-full-revalidation ground truth is **7.1 × 10⁻¹⁵** (numerically zero), empirically
-confirming the soundness guarantee (Theorem 1) at τ_req = 0.
+Across **all 15** refinement points (three types × five severities) CRR's
+revalidated cache is **sound**: the optimality gap against the full-revalidation
+ground truth is **0.0** (exact, since the engine is exact arithmetic), confirming
+the soundness guarantee (Theorem 1) at τ_req = 0.
 
 The prior **no-revalidation** approach is, by contrast, unsafe under model
-evolution: keeping the stale M0 cache leaves up to **94%** of entries
-*infeasible* under a tightened Type-II battery constraint (and up to 56% under
-Type III), i.e. cached plans that now violate the safety reserve. In this system
-the dominant failure mode of staleness is constraint **violation** rather than
-mild suboptimality — precisely the safety-relevant errors CRR eliminates while
-still avoiding a full re-solve.
+evolution: keeping the stale M0 cache leaves up to **100%** of entries
+*infeasible* under a tightened Type-II battery constraint (up to 56% under Type
+III) — cached plans that now violate the safety reserve. In this system the
+dominant failure mode of staleness is constraint **violation** rather than mild
+suboptimality — precisely the safety-relevant errors CRR eliminates while still
+avoiding a full re-solve.
 
 ## RQ3 — Sensitivity & scalability
 
 **Footprint.** A regime-scoped Type-II refinement touching *k* of the 16 regimes
-is handled by the reverse index: entries outside the footprint are reused at
-Stage 1 without examination, so the number of entries examined tracks |Δ|
+is handled by the reverse index: entries outside the footprint are reused at Stage
+1 without examination, so the number examined tracks |Δ|
 (Fig. `crr_footprint`). Crucially, the number of *expensive* re-solves
 **saturates at 3** even when the footprint grows to touch **all 16** entries —
-only the few high-wind regimes whose optimum genuinely migrates ever reach a full
-MILP solve; the rest certify or repair.
+only the few high-wind regimes whose optimum migrates ever reach a full solve.
 
-**Scale.** CRR's advantage grows with problem size. Sweeping fleet size, the
-wall-clock speedup over full revalidation rises from **1.0× (M=3)** to
-**4.1× (M=5)**, **8.4× (M=8)**, and **91× (M=12)** as the individual MILP solves
-become more expensive (Fig. `crr_scale`). Sweeping cache size N ∈ {8,16,24,32}
-under a Type-III refinement, CRR sustains a **100%** re-solve reduction with
-6–13× wall-clock speedup — the certificate machinery scales with the cache while
-the optimizer is never invoked.
+**Scale.** Sweeping fleet size M ∈ {3,5,8} and cache size N ∈ {8,16,24} under
+representative refinements, CRR sustains a **100%** re-solve reduction. The
+warm-start advantage grows with scale: the Stage-3 cold LP pivot count rises with
+the fleet (≈ 593 → 854 → 1 234 pivots for M = 3,5,8) while the warm dual-simplex
+stays flat at ≈ 20 pivots.
 
 ## Fidelity and threats to validity
 
-CRR is implemented against the real fleet task-assignment MILP (PuLP/CBC); every
-solver call is counted and separated into none / arithmetic (S2) / LP-class
-repair (S3) / full MILP (S4). Because PuLP exposes no true warm dual-simplex, the
-Stage-3 repair is realized as a fixed-configuration re-assignment — an honest
-"cheap, no-branching" proxy that explores one configuration rather than all *K*;
-the stage logic and the headline metric (MILP-call reduction) are exact. The
-certificate checks are exact arithmetic for the model at hand (Type-II
-feasibility via per-agent loads and the zonotope support function; Type-III
-ranking preservation; Type-I reduced-cost sign). The evaluation is a controlled,
-synthetic instantiation of the paper's running example; absolute speedups depend
-on solver and instance size, but the *stage distribution*, the *soundness*
-result, and the *footprint/scale trends* are properties of the mechanism.
+The whole pipeline runs on the self-contained engine described above — no
+external solver — and every solver interaction is counted and typed (none /
+arithmetic S2 / warm-LP S3 / branch-and-bound S4). Stage 3 is a genuine warm
+dual-simplex re-optimization (with a cheap rounding of its LP solution; the
+optimum is confirmed exactly by the engine when rounding cannot close it). The
+engine is correctness-focused, not speed-optimized, so on these small instances
+wall-clock is comparable to full revalidation (≈ 1×); we therefore report the
+*algorithmic* metrics — expensive-solver-call reduction and simplex-pivot
+reduction — which are properties of the mechanism and would translate to
+wall-clock on a production solver. The study is a controlled instantiation of the
+running example: absolute magnitudes depend on instance size, but the stage
+distribution, the soundness result, and the footprint/scale trends are properties
+of CRR itself.
 
 ## Summary
 
 CRR revalidates a cache of proven-optimal fleet configurations under model
-evolution while (RQ1) reducing expensive MILP re-solves by 100% for objective
-refinements and 25–100% for constraint refinements — invoking the optimizer only
-for entries whose integer optimum genuinely changed and never doing worse than
-full revalidation; (RQ2) preserving exact optimality (gap ≈ 10⁻¹⁵) where the
-prior no-revalidation approach leaves up to 94% of entries infeasible; and (RQ3)
-concentrating work on the footprint (re-solves saturating at a small constant)
-with a speedup that grows with fleet size.
+evolution while (RQ1) invoking the expensive optimizer only for entries whose
+integer optimum genuinely changed — a 100% re-solve reduction for objective
+refinements and 25–100% for constraint refinements, with the Stage-3 warm
+dual-simplex using ~22× fewer pivots than a cold solve; (RQ2) preserving exact
+optimality (gap = 0.0) where the prior no-revalidation approach leaves up to 100%
+of entries infeasible; and (RQ3) concentrating work on the footprint (re-solves
+saturating at a small constant) with savings that hold — and a warm-start
+advantage that widens — as fleet and cache size grow.
