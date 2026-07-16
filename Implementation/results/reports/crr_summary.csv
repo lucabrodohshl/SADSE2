@@ -1,0 +1,4 @@
+Type,S1,S2,S3,S4,CRR MILP,Full MILP,Reduction,Max gap,Sound
+Type II,0,1,15,0,0,16,100%,0.0e+00,yes
+Type III,0,6,10,0,0,16,100%,0.0e+00,yes
+Type I,0,13,3,0,0,16,100%,0.0e+00,yes

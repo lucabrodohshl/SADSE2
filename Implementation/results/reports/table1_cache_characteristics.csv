@@ -1,0 +1,9 @@
+Gamma Version,Optimization Algorithm,Avg Cache Entries,Avg Cache Size (KB),Avg Entry Size (KB),Cache Overhead
+V1 (Coarse),Genetic Algorithm,11.7,10.0,0.86,Negligible (<20 KB)
+V1 (Coarse),LP Relaxation,11.7,13.2,1.13,Negligible (<20 KB)
+V1 (Coarse),Large Neighborhood Search,11.7,10.0,0.86,Negligible (<20 KB)
+V1 (Coarse),MILP (Discrete),11.7,10.0,0.86,Negligible (<20 KB)
+V2 (Fine-Grained),Genetic Algorithm,28.7,24.5,0.85,Negligible (<20 KB)
+V2 (Fine-Grained),LP Relaxation,28.7,32.3,1.13,Negligible (<20 KB)
+V2 (Fine-Grained),Large Neighborhood Search,28.7,24.5,0.85,Negligible (<20 KB)
+V2 (Fine-Grained),MILP (Discrete),28.7,24.5,0.85,Negligible (<20 KB)

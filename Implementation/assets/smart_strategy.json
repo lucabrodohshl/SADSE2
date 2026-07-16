@@ -1,0 +1,5 @@
+{
+    "extension_threshold": 0.05,
+    "merge_threshold": 0.10,
+    "merge_frequency": 3
+}

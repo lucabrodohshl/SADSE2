@@ -1,0 +1,70 @@
+================================================================================
+CACHE EFFECTIVENESS METRICS - PAPER REPORT
+================================================================================
+
+
+V1 (Old Gamma)
+--------------------------------------------------------------------------------
+
+Scenarios: 3
+Strategies: 4
+
+Cache Hit Rate (%):
+  Mean:      95.07%
+  Median:    93.33%
+  Std:        2.76%
+  Min:       92.50%
+  Max:       98.33%
+
+Speedup Factor:
+  Mean:      24.07×
+  Median:    13.45×
+  Std:       16.99×
+  Min:       11.05×
+  Max:       56.51×
+
+Latency P50 (ms):
+  Mean:       0.75
+  Median:     0.68
+
+Latency P95 (ms):
+  Mean:    8346.70
+  Median:   105.43
+
+Latency P99 (ms):
+  Mean:   11914.30
+  Median:   134.16
+
+
+V2 (New Gamma)
+--------------------------------------------------------------------------------
+
+Scenarios: 3
+Strategies: 4
+
+Cache Hit Rate (%):
+  Mean:      81.18%
+  Median:    83.33%
+  Std:        7.90%
+  Min:       70.83%
+  Max:       89.17%
+
+Speedup Factor:
+  Mean:       5.42×
+  Median:     5.17×
+  Std:        2.02×
+  Min:        2.93×
+  Max:        8.23×
+
+Latency P50 (ms):
+  Mean:       1.24
+  Median:     1.20
+
+Latency P95 (ms):
+  Mean:    8523.75
+  Median:   155.22
+
+Latency P99 (ms):
+  Mean:   13752.06
+  Median:   161.81
+

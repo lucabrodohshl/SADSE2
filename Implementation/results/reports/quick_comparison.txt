@@ -1,0 +1,46 @@
+====================================================================================================
+GAMMA V1 vs V2 QUICK COMPARISON TABLE
+====================================================================================================
+
+                  Metric  V1 (Old Gamma)    V2 (New Gamma) Difference Change (%)
+      Cache Hit Rate (%)    95.07 ± 2.76      80.90 ± 8.31     -14.17     -14.9%
+ Hit Latency Median (ms)     0.46 ± 0.50       1.03 ± 0.07      +0.57    +124.7%
+Miss Latency Median (ms) 976.50 ± 909.69  1052.86 ± 984.28     +76.37      +7.8%
+        Latency P50 (ms)     0.54 ± 0.50       1.06 ± 0.11      +0.52     +95.4%
+        Latency P95 (ms) 637.85 ± 866.67 1134.84 ± 1048.80    +496.99     +77.9%
+        Latency P99 (ms) 946.69 ± 899.52 1304.50 ± 1212.54    +357.81     +37.8%
+      Speedup Factor (×)   26.38 ± 19.54       5.65 ± 2.06     -20.73     -78.6%
+          Total Requests             120               120          0       0.0%
+              Cache Hits             114                97        -17     -14.9%
+            Cache Misses               6                23         17     287.3%
+
+====================================================================================================
+KEY INSIGHTS:
+====================================================================================================
+
+1. CACHE EFFECTIVENESS:
+   - V1 achieves 95.1% hit rate (coarse discretization)
+   - V2 achieves 80.9% hit rate (fine-grained discretization)
+   - Trade-off: V1 has 14.2% higher hit rate
+
+2. PERFORMANCE SPEEDUP:
+   - V1 provides 26.4× speedup over baseline
+   - V2 provides 5.6× speedup over baseline
+   - Trade-off: V1 has 4.7× higher speedup
+
+3. LATENCY:
+   - V1 median latency: 0.54 ms
+   - V2 median latency: 1.06 ms
+   - Trade-off: V2 has +95.4% higher latency
+
+4. INTERPRETATION:
+   - V1 (coarse): Fewer unique configurations → more cache hits → higher speedup
+   - V2 (fine-grained): More unique configurations → fewer cache hits → lower speedup
+   - V2 (fine-grained): More precise environmental adaptation → better optimality
+   - Design choice: Cache effectiveness vs. solution optimality
+
+5. RECOMMENDATION:
+   - V2 still achieves good cache performance (>70% hit rate, >3× speedup)
+   - V2 provides more accurate environmental constraint modeling
+   - **Recommend V2** for production systems prioritizing accuracy
+   - Consider V1 for systems prioritizing speed over precision

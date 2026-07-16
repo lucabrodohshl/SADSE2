@@ -1,0 +1,22 @@
+\begin{table}
+\caption{Cache Effectiveness Metrics - V1 (Old Gamma)}
+\label{tab:cache_metrics}
+\begin{tabular}{lllllllllll}
+\toprule
+Scenario & Strategy & Hit Rate (%) & Hit Latency Median (ms) & Miss Latency Median (ms) & Latency P50 (ms) & Latency P95 (ms) & Latency P99 (ms) & Speedup Factor & Memory Peak (MB) & Cache Size Final \\
+\midrule
+weather_scenario_180_temp_25_realistic & SMART CACHE (DISCRETE) & 97.50 & 0.99 & 50467.99 & 1.01 & 49727.82 & 50650.01 & 14.57× & N/A & NaN \\
+weather_scenario_180_temp_25_realistic & SMART CACHE (LINEAR) & 93.33 & 1.19 & 185.60 & 1.21 & 181.99 & 186.94 & 12.58× & N/A & NaN \\
+weather_scenario_180_temp_25_realistic & SMART CACHE (GA) & 93.33 & 0.50 & 102.40 & 0.50 & 101.01 & 103.63 & 13.29× & N/A & NaN \\
+weather_scenario_180_temp_25_realistic & SMART CACHE (LNS) & 93.33 & 0.53 & 112.34 & 0.53 & 110.21 & 114.54 & 13.61× & N/A & NaN \\
+weather_scenario_330_temp_5_realistic & SMART CACHE (DISCRETE) & 92.50 & 0.78 & 49746.19 & 0.81 & 49645.16 & 50458.74 & 12.62× & N/A & NaN \\
+weather_scenario_330_temp_5_realistic & SMART CACHE (LINEAR) & 92.50 & 1.00 & 185.10 & 1.01 & 183.03 & 190.85 & 11.05× & N/A & NaN \\
+weather_scenario_330_temp_5_realistic & SMART CACHE (GA) & 92.50 & 0.44 & 97.68 & 0.44 & 96.69 & 99.57 & 12.61× & N/A & NaN \\
+weather_scenario_330_temp_5_realistic & SMART CACHE (LNS) & 92.50 & 0.47 & 110.98 & 0.48 & 109.85 & 113.50 & 12.35× & N/A & NaN \\
+weather_scenario_90_temp_15_realistic & SMART CACHE (DISCRETE) & 98.33 & 0.83 & 50336.11 & 0.85 & 1.51 & 40727.01 & 56.51× & N/A & NaN \\
+weather_scenario_90_temp_15_realistic & SMART CACHE (LINEAR) & 98.33 & 1.11 & 189.94 & 1.11 & 1.81 & 153.79 & 41.52× & N/A & NaN \\
+weather_scenario_90_temp_15_realistic & SMART CACHE (GA) & 98.33 & 0.52 & 101.91 & 0.52 & 0.64 & 82.19 & 43.80× & N/A & NaN \\
+weather_scenario_90_temp_15_realistic & SMART CACHE (LNS) & 98.33 & 0.56 & 113.45 & 0.56 & 0.69 & 90.84 & 44.38× & N/A & NaN \\
+\bottomrule
+\end{tabular}
+\end{table}

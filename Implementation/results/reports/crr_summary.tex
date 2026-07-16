@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{CRR revalidation on a cache of 16 entries under a representative refinement of each type. Every entry is revalidated with exact optimality (gap $\approx 0$); only entries whose integer optimum genuinely changed reach a full MILP re-solve.}
+\label{tab:crr-efficiency}
+\small
+\begin{tabular}{lrrrrrrrrc}
+\toprule
+Type & S1 & S2 & S3 & S4 & CRR MILP & Full MILP & Reduction & Max gap & Sound \\
+\midrule
+Type II & 0 & 1 & 15 & 0 & 0 & 16 & 100\% & 0.0e+00 & yes \\
+Type III & 0 & 6 & 10 & 0 & 0 & 16 & 100\% & 0.0e+00 & yes \\
+Type I & 0 & 13 & 3 & 0 & 0 & 16 & 100\% & 0.0e+00 & yes \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,11 @@
+Metric,V1 (Old Gamma),V2 (New Gamma),Difference,Change (%)
+Cache Hit Rate (%),95.07 ± 2.76,80.90 ± 8.31,-14.17,-14.9%
+Hit Latency Median (ms),0.46 ± 0.50,1.03 ± 0.07,+0.57,+124.7%
+Miss Latency Median (ms),976.50 ± 909.69,1052.86 ± 984.28,+76.37,+7.8%
+Latency P50 (ms),0.54 ± 0.50,1.06 ± 0.11,+0.52,+95.4%
+Latency P95 (ms),637.85 ± 866.67,1134.84 ± 1048.80,+496.99,+77.9%
+Latency P99 (ms),946.69 ± 899.52,1304.50 ± 1212.54,+357.81,+37.8%
+Speedup Factor (×),26.38 ± 19.54,5.65 ± 2.06,-20.73,-78.6%
+Total Requests,120,120,0,0.0%
+Cache Hits,114,97,-17,-14.9%
+Cache Misses,6,23,17,287.3%

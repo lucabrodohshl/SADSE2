@@ -1,0 +1,192 @@
+MEMORY EFFICIENCY ANALYSIS
+==================================================
+
+MEMORY USAGE COMPARISON
+============================================================
+
+SMART CACHE (DISCRETE):
+  Current Python: 14005.2 KB
+  Current RSS: 1101444.0 KB
+  Current VMS: 2501524.0 KB
+  Peak Python: 14005.2 KB
+  Peak RSS: 1101444.0 KB
+  Memory growth: +944192.0 KB
+  Cache entries: 12
+  Cache data: 10.3 KB
+  Avg entry size: 0.85 KB
+
+BASELINE DISCRETE:
+  Current Python: 14007.0 KB
+  Current RSS: 1101444.0 KB
+  Current VMS: 2501524.0 KB
+  Peak Python: 14007.0 KB
+  Peak RSS: 1101444.0 KB
+  Memory growth: +277280.0 KB
+  Cache entries: 0
+
+SMART CACHE (LINEAR):
+  Current Python: 14006.7 KB
+  Current RSS: 1101444.0 KB
+  Current VMS: 2501524.0 KB
+  Peak Python: 14006.7 KB
+  Peak RSS: 1101444.0 KB
+  Memory growth: +944164.0 KB
+  Cache entries: 12
+  Cache data: 13.5 KB
+  Avg entry size: 1.13 KB
+
+BASELINE LINEAR:
+  Current Python: 14008.7 KB
+  Current RSS: 1101444.0 KB
+  Current VMS: 2501524.0 KB
+  Peak Python: 14008.7 KB
+  Peak RSS: 1101444.0 KB
+  Memory growth: +277280.0 KB
+  Cache entries: 0
+
+SMART CACHE (GA):
+  Current Python: 14008.5 KB
+  Current RSS: 1101444.0 KB
+  Current VMS: 2501524.0 KB
+  Peak Python: 14008.5 KB
+  Peak RSS: 1101444.0 KB
+  Memory growth: +944164.0 KB
+  Cache entries: 12
+  Cache data: 10.3 KB
+  Avg entry size: 0.85 KB
+
+GENETIC ALGORITHM:
+  Current Python: 14010.5 KB
+  Current RSS: 1101444.0 KB
+  Current VMS: 2501524.0 KB
+  Peak Python: 14010.5 KB
+  Peak RSS: 1101444.0 KB
+  Memory growth: +277280.0 KB
+  Cache entries: 0
+
+SMART CACHE (LNS):
+  Current Python: 14010.2 KB
+  Current RSS: 1101444.0 KB
+  Current VMS: 2501524.0 KB
+  Peak Python: 14010.2 KB
+  Peak RSS: 1101444.0 KB
+  Memory growth: +944164.0 KB
+  Cache entries: 12
+  Cache data: 10.3 KB
+  Avg entry size: 0.85 KB
+
+LARGE NEIGHBORHOOD SEARCH:
+  Current Python: 14012.2 KB
+  Current RSS: 1101444.0 KB
+  Current VMS: 2501524.0 KB
+  Peak Python: 14012.2 KB
+  Peak RSS: 1101444.0 KB
+  Memory growth: +277280.0 KB
+  Cache entries: 0
+
+RELATIVE COMPARISONS:
+------------------------------
+SMART CACHE (DISCRETE) vs BASELINE DISCRETE:
+  Memory ratio: 1.00x
+  Memory difference: +0.0 KB
+  Efficiency: +0.0%
+
+SMART CACHE (LINEAR) vs BASELINE LINEAR:
+  Memory ratio: 1.00x
+  Memory difference: +0.0 KB
+  Efficiency: +0.0%
+
+SMART CACHE (GA) vs GENETIC ALGORITHM:
+  Memory ratio: 1.00x
+  Memory difference: +0.0 KB
+  Efficiency: +0.0%
+
+SMART CACHE (LNS) vs LARGE NEIGHBORHOOD SEARCH:
+  Memory ratio: 1.00x
+  Memory difference: +0.0 KB
+  Efficiency: +0.0%
+
+
+
+DETAILED STRATEGY MEMORY USAGE:
+----------------------------------------
+
+SMART CACHE (DISCRETE):
+Memory Usage Summary - SMART CACHE (DISCRETE)
+==================================================
+Current RSS: 1101444.0 KB
+Current VMS: 2501524.0 KB
+Peak RSS: 1101444.0 KB
+Current Python: 14024.8 KB
+Peak Python: 14005.2 KB
+Memory growth: +944192.0 KB
+Cache data: 10.3 KB
+Cache entries: 12
+Avg entry size: 0.85 KB
+Snapshots taken: 727
+
+BASELINE DISCRETE:
+Final Python Memory: 14007.0 KB
+Final RSS: 1101444.0 KB
+Memory Growth: +277280.0 KB
+Snapshots: 243
+
+SMART CACHE (LINEAR):
+Memory Usage Summary - SMART CACHE (LINEAR)
+==================================================
+Current RSS: 1101444.0 KB
+Current VMS: 2501524.0 KB
+Peak RSS: 1101444.0 KB
+Current Python: 14025.8 KB
+Peak Python: 14006.7 KB
+Memory growth: +944164.0 KB
+Cache data: 13.5 KB
+Cache entries: 12
+Avg entry size: 1.13 KB
+Snapshots taken: 727
+
+BASELINE LINEAR:
+Final Python Memory: 14008.7 KB
+Final RSS: 1101444.0 KB
+Memory Growth: +277280.0 KB
+Snapshots: 243
+
+SMART CACHE (GA):
+Memory Usage Summary - SMART CACHE (GA)
+==================================================
+Current RSS: 1101444.0 KB
+Current VMS: 2501524.0 KB
+Peak RSS: 1101444.0 KB
+Current Python: 14027.0 KB
+Peak Python: 14008.5 KB
+Memory growth: +944164.0 KB
+Cache data: 10.3 KB
+Cache entries: 12
+Avg entry size: 0.85 KB
+Snapshots taken: 727
+
+GENETIC ALGORITHM:
+Final Python Memory: 14010.5 KB
+Final RSS: 1101444.0 KB
+Memory Growth: +277280.0 KB
+Snapshots: 243
+
+SMART CACHE (LNS):
+Memory Usage Summary - SMART CACHE (LNS)
+==================================================
+Current RSS: 1101444.0 KB
+Current VMS: 2501524.0 KB
+Peak RSS: 1101444.0 KB
+Current Python: 14028.1 KB
+Peak Python: 14010.2 KB
+Memory growth: +944164.0 KB
+Cache data: 10.3 KB
+Cache entries: 12
+Avg entry size: 0.85 KB
+Snapshots taken: 727
+
+LARGE NEIGHBORHOOD SEARCH:
+Final Python Memory: 14012.2 KB
+Final RSS: 1101444.0 KB
+Memory Growth: +277280.0 KB
+Snapshots: 243

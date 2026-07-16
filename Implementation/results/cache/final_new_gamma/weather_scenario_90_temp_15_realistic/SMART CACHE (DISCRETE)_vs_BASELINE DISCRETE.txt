@@ -1,0 +1,46 @@
+======================================================================
+COMPARISON: SMART CACHE (DISCRETE) vs BASELINE DISCRETE
+======================================================================
+Configuration Space Volume: 1.39e+07
+Final Cached Coverage: 58.3%
+Total adaptations: 120
+
+SMART CACHE APPROACH:
+  • Cache hits: 100 (83.3%)
+  • Region extensions: 1 (0.8%)
+  • New entries: 19
+  • Cache entries: 39
+  • Average latency: 6231.44 ms
+  • Total time: 747772.95 ms
+
+COMPARISON (BASELINE DISCRETE):
+  • Total optimizations: 120
+  • Average latency: 34153.19 ms
+  • Total time: 4098382.96 ms
+
+PERFORMANCE COMPARISON:
+   Speedup: 5.48x faster
+   Time saved: 3350610.00 ms (81.8%)
+   Cache efficiency: 84.2% queries optimized
+   Coverage progression: 0% -> 58.3%
+======================================================================
+Final Cache Statistics
+
+======================================================================
+SMART ZONOTOPE CACHE SUMMARY (6D)
+======================================================================
+Domain: speed, altitude, camera_res, spray_rate, power_limit_factor, sensor_sampling
+
+Cache Entries:        39
+Total Queries:        360
+Cache Hits:           292
+Region Extensions:    1
+Hit Rate:             81.1%
+Extension Rate:       1.5%
+Successful Merges:    28
+
+Avg Query Time:       1.33 ms
+Avg Optimization:     36090.77 ms
+======================================================================
+
+

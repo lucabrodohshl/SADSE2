@@ -1,0 +1,206 @@
+{
+  "N": 16,
+  "crr": [
+    {
+      "kind": "II",
+      "label": "reserve=0.30",
+      "max_gap": 0.0,
+      "sound": true
+    },
+    {
+      "kind": "II",
+      "label": "reserve=0.42",
+      "max_gap": 0.0,
+      "sound": true
+    },
+    {
+      "kind": "II",
+      "label": "reserve=0.54",
+      "max_gap": 0.0,
+      "sound": true
+    },
+    {
+      "kind": "II",
+      "label": "reserve=0.66",
+      "max_gap": 0.0,
+      "sound": true
+    },
+    {
+      "kind": "II",
+      "label": "reserve=0.78",
+      "max_gap": 0.0,
+      "sound": true
+    },
+    {
+      "kind": "III",
+      "label": "delta=0.05",
+      "max_gap": 0.0,
+      "sound": true
+    },
+    {
+      "kind": "III",
+      "label": "delta=0.12",
+      "max_gap": 0.0,
+      "sound": true
+    },
+    {
+      "kind": "III",
+      "label": "delta=0.22",
+      "max_gap": 0.0,
+      "sound": true
+    },
+    {
+      "kind": "III",
+      "label": "delta=0.38",
+      "max_gap": 0.0,
+      "sound": true
+    },
+    {
+      "kind": "III",
+      "label": "delta=0.60",
+      "max_gap": 0.0,
+      "sound": true
+    },
+    {
+      "kind": "I",
+      "label": "strength=0.05",
+      "max_gap": 0.0,
+      "sound": true
+    },
+    {
+      "kind": "I",
+      "label": "strength=0.12",
+      "max_gap": 0.0,
+      "sound": true
+    },
+    {
+      "kind": "I",
+      "label": "strength=0.22",
+      "max_gap": 0.0,
+      "sound": true
+    },
+    {
+      "kind": "I",
+      "label": "strength=0.38",
+      "max_gap": 0.0,
+      "sound": true
+    },
+    {
+      "kind": "I",
+      "label": "strength=0.60",
+      "max_gap": 0.0,
+      "sound": true
+    }
+  ],
+  "stale": [
+    {
+      "kind": "II",
+      "label": "reserve=0.30",
+      "violation_rate": 0.375,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    },
+    {
+      "kind": "II",
+      "label": "reserve=0.42",
+      "violation_rate": 0.75,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    },
+    {
+      "kind": "II",
+      "label": "reserve=0.54",
+      "violation_rate": 0.9375,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    },
+    {
+      "kind": "II",
+      "label": "reserve=0.66",
+      "violation_rate": 1.0,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    },
+    {
+      "kind": "II",
+      "label": "reserve=0.78",
+      "violation_rate": 1.0,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    },
+    {
+      "kind": "III",
+      "label": "delta=0.05",
+      "violation_rate": 0.0625,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    },
+    {
+      "kind": "III",
+      "label": "delta=0.12",
+      "violation_rate": 0.25,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    },
+    {
+      "kind": "III",
+      "label": "delta=0.22",
+      "violation_rate": 0.625,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    },
+    {
+      "kind": "III",
+      "label": "delta=0.38",
+      "violation_rate": 0.75,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    },
+    {
+      "kind": "III",
+      "label": "delta=0.60",
+      "violation_rate": 0.875,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    },
+    {
+      "kind": "I",
+      "label": "strength=0.05",
+      "violation_rate": 0.0625,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    },
+    {
+      "kind": "I",
+      "label": "strength=0.12",
+      "violation_rate": 0.0625,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    },
+    {
+      "kind": "I",
+      "label": "strength=0.22",
+      "violation_rate": 0.1875,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    },
+    {
+      "kind": "I",
+      "label": "strength=0.38",
+      "violation_rate": 0.375,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    },
+    {
+      "kind": "I",
+      "label": "strength=0.60",
+      "violation_rate": 0.625,
+      "mean_subopt": 0.0,
+      "max_subopt": 0.0
+    }
+  ],
+  "all_sound": true,
+  "max_gap_overall": 0.0,
+  "stale_worst_violation_rate": 1.0,
+  "stale_worst_max_subopt": 0.0
+}

@@ -1,0 +1,97 @@
+{
+  "timestamp": 1761217499.7826102,
+  "strategies": {
+    "SMART CACHE (DISCRETE)": {
+      "strategy": "SMART CACHE (DISCRETE)",
+      "current_rss_kb": 1127108.0,
+      "current_vms_kb": 2531992.0,
+      "current_python_kb": 14177.21484375,
+      "cache_data_kb": 24.7802734375,
+      "entries_count": 29,
+      "avg_entry_size_kb": 0.8544921875,
+      "peak_memory": "MemorySnapshot(timestamp=1761217499.4040663, label='current_usage', strategy_name='SMART CACHE (DISCRETE)', rss_kb=1127108.0, vms_kb=2531992.0, python_kb=14177.21484375, entries_count=29, custom_data={})",
+      "memory_growth": 970288.0
+    },
+    "BASELINE DISCRETE": {
+      "strategy": "BASELINE DISCRETE",
+      "current_rss_kb": 1127108.0,
+      "current_vms_kb": 2531992.0,
+      "current_python_kb": 14179.658203125,
+      "cache_data_kb": 0.0,
+      "entries_count": 0,
+      "avg_entry_size_kb": 0.0,
+      "peak_memory": "MemorySnapshot(timestamp=1761217499.4592233, label='final_BASELINE DISCRETE', strategy_name='BASELINE DISCRETE', rss_kb=1127108.0, vms_kb=2531992.0, python_kb=14179.658203125, entries_count=0, custom_data={})",
+      "memory_growth": 276564.0
+    },
+    "SMART CACHE (LINEAR)": {
+      "strategy": "SMART CACHE (LINEAR)",
+      "current_rss_kb": 1127108.0,
+      "current_vms_kb": 2531992.0,
+      "current_python_kb": 14179.35546875,
+      "cache_data_kb": 32.7099609375,
+      "entries_count": 29,
+      "avg_entry_size_kb": 1.1279296875,
+      "peak_memory": "MemorySnapshot(timestamp=1761217499.5175374, label='current_usage', strategy_name='SMART CACHE (LINEAR)', rss_kb=1127108.0, vms_kb=2531992.0, python_kb=14179.35546875, entries_count=29, custom_data={})",
+      "memory_growth": 970260.0
+    },
+    "BASELINE LINEAR": {
+      "strategy": "BASELINE LINEAR",
+      "current_rss_kb": 1127108.0,
+      "current_vms_kb": 2531992.0,
+      "current_python_kb": 14182.001953125,
+      "cache_data_kb": 0.0,
+      "entries_count": 0,
+      "avg_entry_size_kb": 0.0,
+      "peak_memory": "MemorySnapshot(timestamp=1761217499.5698805, label='final_BASELINE LINEAR', strategy_name='BASELINE LINEAR', rss_kb=1127108.0, vms_kb=2531992.0, python_kb=14182.001953125, entries_count=0, custom_data={})",
+      "memory_growth": 276564.0
+    },
+    "SMART CACHE (GA)": {
+      "strategy": "SMART CACHE (GA)",
+      "current_rss_kb": 1127108.0,
+      "current_vms_kb": 2531992.0,
+      "current_python_kb": 14181.744140625,
+      "cache_data_kb": 25.634765625,
+      "entries_count": 30,
+      "avg_entry_size_kb": 0.8544921875,
+      "peak_memory": "MemorySnapshot(timestamp=1761217499.623529, label='current_usage', strategy_name='SMART CACHE (GA)', rss_kb=1127108.0, vms_kb=2531992.0, python_kb=14181.744140625, entries_count=30, custom_data={})",
+      "memory_growth": 970256.0
+    },
+    "GENETIC ALGORITHM": {
+      "strategy": "GENETIC ALGORITHM",
+      "current_rss_kb": 1127108.0,
+      "current_vms_kb": 2531992.0,
+      "current_python_kb": 14184.392578125,
+      "cache_data_kb": 0.0,
+      "entries_count": 0,
+      "avg_entry_size_kb": 0.0,
+      "peak_memory": "MemorySnapshot(timestamp=1761217499.6755385, label='final_GENETIC ALGORITHM', strategy_name='GENETIC ALGORITHM', rss_kb=1127108.0, vms_kb=2531992.0, python_kb=14184.392578125, entries_count=0, custom_data={})",
+      "memory_growth": 276564.0
+    },
+    "SMART CACHE (LNS)": {
+      "strategy": "SMART CACHE (LNS)",
+      "current_rss_kb": 1127108.0,
+      "current_vms_kb": 2531992.0,
+      "current_python_kb": 14184.220703125,
+      "cache_data_kb": 24.7802734375,
+      "entries_count": 29,
+      "avg_entry_size_kb": 0.8544921875,
+      "peak_memory": "MemorySnapshot(timestamp=1761217499.727477, label='current_usage', strategy_name='SMART CACHE (LNS)', rss_kb=1127108.0, vms_kb=2531992.0, python_kb=14184.220703125, entries_count=29, custom_data={})",
+      "memory_growth": 970256.0
+    },
+    "LARGE NEIGHBORHOOD SEARCH": {
+      "strategy": "LARGE NEIGHBORHOOD SEARCH",
+      "current_rss_kb": 1127108.0,
+      "current_vms_kb": 2531992.0,
+      "current_python_kb": 14186.876953125,
+      "cache_data_kb": 0.0,
+      "entries_count": 0,
+      "avg_entry_size_kb": 0.0,
+      "peak_memory": "MemorySnapshot(timestamp=1761217499.7772155, label='final_LARGE NEIGHBORHOOD SEARCH', strategy_name='LARGE NEIGHBORHOOD SEARCH', rss_kb=1127108.0, vms_kb=2531992.0, python_kb=14186.876953125, entries_count=0, custom_data={})",
+      "memory_growth": 276564.0
+    }
+  },
+  "comparison_summary": {
+    "total_strategies": 8,
+    "has_system_memory": true
+  }
+}

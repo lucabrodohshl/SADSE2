@@ -1,0 +1,31 @@
+\begin{table*}[t]
+\centering
+\caption{Overview of the simulation results.  Scenarios are denoted as S1(330D, 5°C), S2(180D, 25°C), and S3(90D, 15°C).}
+\label{tab:performance_metrics}
+\small
+\begin{tabular}{l| cc|cc|cc|cc|cc|cc|cc|cc}
+\toprule
+ 
+\multirow{1}{*}{\textbf{Strategy}} &\multicolumn{2}{c|}{\textbf{Hit Rate}}  & \multicolumn{2}{c|}{\textbf{Speedup}} & \multicolumn{8}{c|}{\textbf{Latency (ms)}} &  \multicolumn{2}{c|}{\textbf{Baseline}}  & \multicolumn{2}{c}{\textbf{Coverage}} \\
+\cmidrule(lr){6-13} 
+\multicolumn{1}{l|}{\textbf{(Scenario)}}& \multicolumn{2}{c|}{\textbf{ (\%)}}&\multicolumn{2}{c|}{}& \multicolumn{2}{c|}{P50} & \multicolumn{2}{c|}{P95} & \multicolumn{2}{c|}{P99} &\multicolumn{2}{c|}{Avg.} &\multicolumn{2}{c|}{\textbf{Latency (ms)}}&\multicolumn{2}{c}{\textbf{ (\%)}}  \\
+
+\cmidrule(lr){2-17} 
+ & $\Gamma_1$ & $\Gamma_2$ & $\Gamma_1$ & $\Gamma_2$ & $\Gamma_1$ & $\Gamma_2$ & $\Gamma_1$ & $\Gamma_2$ & $\Gamma_1$ & $\Gamma_2$ & $\Gamma_1$ & $\Gamma_2$ & $\Gamma_1$ & $\Gamma_2$ & $\Gamma_1$ & $\Gamma_2$ \\ 
+\midrule
+     GA (S1) & 92 & 71 & 12.6 & 3.4 & 0.44 & 0.61 & 96.7 & 106.5 & 99.6 & 109.7 & 7.77 & 29.44 & 97.90 & 99.59 & 29 & 18  \\
+ LNS (S1) & 92 & 70 & 12.4 & 3.3 & 0.48 & 0.68 & 109.9 & 115.8 & 113.5 & 117.5 & 8.81 & 33.54 & 108.78 & 109.29 & 29 & 18  \\
+ LP (S1) & 92 & 70 & 11.0 & 2.9 & 1.01 & 1.52 & 183.0 & 225.1 & 190.8 & 261.8 & 14.93 & 61.11 & 164.93 & 178.90 & 29 & 18  \\
+ MILP (S1) & 92 & 70 & 12.6 & 3.3 & 0.81 & 1.34 & 49645.2 & 36161.8 & 50458.7 & 57066.2 & 3430.64 & 10145.93 & 43305.89 & 33438.56 & 29 & 18  \\
+ GA (S2) & 93 & 89 & 13.3 & 8.0 & 0.50 & 0.87 & 101.0 & 106.0 & 103.6 & 109.7 & 7.29 & 12.20 & 96.96 & 97.78 & 54 & 50  \\
+ LNS (S2) & 93 & 89 & 13.6 & 8.2 & 0.53 & 0.90 & 110.2 & 114.4 & 114.5 & 118.6 & 8.01 & 13.21 & 108.98 & 108.80 & 54 & 50  \\
+ LP (S2) & 93 & 89 & 12.6 & 7.6 & 1.21 & 1.84 & 182.0 & 190.3 & 186.9 & 198.8 & 13.42 & 22.59 & 168.87 & 171.79 & 54 & 50  \\
+ MILP (S2) & 97 & 89 & 14.6 & 7.7 & 1.01 & 1.42 & 49727.8 & 30933.0 & 50650.0 & 51433.7 & 3202.56 & 4080.09 & 46646.42 & 31579.62 & 54 & 50  \\
+ GA (S3) & 98 & 82 & 43.8 & 4.8 & 0.52 & 0.98 & 0.6 & 116.3 & 82.2 & 124.5 & 2.22 & 20.72 & 97.24 & 98.57 & 72 & 58  \\
+ LNS (S3) & 98 & 83 & 44.4 & 5.3 & 0.56 & 1.06 & 0.7 & 120.1 & 90.8 & 124.8 & 2.46 & 20.69 & 109.10 & 109.27 & 72 & 58  \\
+ LP (S3) & 98 & 83 & 41.5 & 5.1 & 1.11 & 2.02 & 1.8 & 202.5 & 153.8 & 240.3 & 4.27 & 35.72 & 177.39 & 180.72 & 72 & 58  \\
+ MILP (S3) & 98 & 84 & 56.5 & 5.5 & 0.85 & 1.66 & 1.5 & 33893.1 & 40727.0 & 55119.2 & 839.81 & 6231.44 & 47454.93 & 34153.19 & 72 & 58  \\
+\bottomrule
+
+\end{tabular}
+\end{table*}
