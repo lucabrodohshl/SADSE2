@@ -36,27 +36,44 @@ evaluation of CRR. See [`Implementation/README.md`](Implementation/README.md) fo
 the code layout and [`Implementation/docs/evaluation.md`](Implementation/docs/evaluation.md)
 for the full evaluation.
 
-## Evaluation at a glance (RQ1–3)
+## Two evaluations, and why there are two
 
 The CRR engine is built on a **self-contained optimization engine** — a
 bounded-variable primal/dual simplex plus branch-and-bound, written from scratch
-and validated against SciPy (no external MILP solver). Its Stage-3 repair uses a
-**true warm dual-simplex**.
+and validated against SciPy (no external MILP solver).
 
-- **RQ1 — Efficiency.** CRR calls the expensive optimizer only when the integer
-  optimum genuinely changes: on a 16-entry cache, moderate refinements of every
-  type are revalidated with **0 re-solves (100 % reduction)**, degrading
-  gracefully to 25 % under extreme tightening. The Stage-3 warm dual-simplex
-  re-optimizes repairs in **~22× fewer pivots** than a cold solve — a gap that
-  **grows with problem size**.
-- **RQ2 — Correctness.** Exact optimality on every refinement point (optimality
-  gap **0.0** vs. a full-re-solve ground truth), while the prior *no-revalidation*
-  approach leaves up to **100 %** of entries infeasible (safety-reserve
-  violations).
-- **RQ3 — Sensitivity & scale.** The dependency reverse index touches only the
-  refinement footprint; the number of expensive re-solves **saturates at a small
-  constant** even when the footprint spans the whole cache, and the call reduction
-  holds as fleet and cache size grow.
+**[`docs/evaluation.md`](Implementation/docs/evaluation.md)** is the original study
+(16-entry cache, one seed). Several of its headline numbers turned out to be
+consequences of how the experiment was built rather than measurements of CRR — most
+importantly, its Type-III refinement is a *uniform* scale, which provably cannot change
+`argmin_k Σ_j E[k,j]` for any severity, and its Stage-2 "certificate check" performs the
+same 35 energy-model evaluations as the "expensive" solve it is credited with avoiding.
+It is retained for provenance.
+
+**[`docs/realworld-evaluation.md`](Implementation/docs/realworld-evaluation.md)** is the
+replacement: a simulated operating envelope (AR(1) weather over a grid of climatologies),
+vector-wind physics that genuinely re-ranks configurations (**90%** of draws, versus
+**0% by construction** in the original ODD model), refinement operators that *can* move
+the optimum, an honest comparator set led by **`naive_recheck`** (CRR with all its
+machinery removed), and cost accounted as real work rather than only as "expensive
+calls". It carries the RQ1/RQ3 claims; §1 of that document catalogues why.
+
+### The engine now reaches a scale where the premise is real
+
+At the originally evaluated size, one "expensive MILP call" is **4.89 ms** and the whole
+16-entry cache revalidates in **78 ms** — there was no expensive optimizer to avoid. The
+engine was rebuilt (LU reuse, Dantzig pricing with a Bland fallback, reliability
+branching, hybrid best-first + plunging, an LP-guided dive heuristic used only as an
+incumbent):
+
+| fleet | binary vars | before | after | vs HiGHS |
+|---|---|---|---|---|
+| 4 × 5 × 7 | 147 | did not finish in 5 min | **383 ms** | 11.6× |
+| 6 × 8 × 9 | 441 | — | **3.2 s** | 16.1× |
+| 7 × 10 × 10 | 710 | — | **34.8 s** | 36.2× |
+
+At the 6 × 8 × 9 operating point a single re-solve costs **3.2 s** on the self-contained
+engine, so avoiding re-solves describes something real.
 
 ## Reproduce
 
@@ -64,10 +81,16 @@ and validated against SciPy (no external MILP solver). Its Stage-3 repair uses a
 cd Implementation
 pip install -r requirements.txt
 python -m pytest evaluate/tests/test_crr.py evaluate/tests/test_simplex.py -q   # engine + soundness
+python -m evaluate.tests.bench_engine              # engine vs scipy/HiGHS oracle
+
+# the simulation-based evaluation (RQ1/RQ3)
+CRR_SEEDS=16 CRR_M=6 CRR_J=8 CRR_K=9 CRR_N=12 \
+  python -m evaluate.experiments.realworld_eval
+
+# the original study, retained for provenance
 python -m evaluate.experiments.crr_efficiency      # RQ1
 python -m evaluate.experiments.crr_correctness     # RQ2
 python -m evaluate.experiments.crr_sensitivity     # RQ3
-python -m evaluate.reporting.crr_figures           # figures + tables
 ```
 
 > Note: the paper's LaTeX source (`RTOPT/`) is not present in the working tree;

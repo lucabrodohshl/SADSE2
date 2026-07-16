@@ -1,0 +1,206 @@
+{
+ "n": 224,
+ "n_live": 224,
+ "n_void": 0,
+ "void_reasons": [],
+ "headline": {
+  "milp": {
+   "warm_resolve": {
+    "median_ratio": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "speedup": Infinity,
+    "crr_zero_fraction": 0.6294642857142857,
+    "crr_worse_fraction": 0.0,
+    "n": 224
+   },
+   "footprint_resolve": {
+    "median_ratio": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "speedup": Infinity,
+    "crr_zero_fraction": 0.6294642857142857,
+    "crr_worse_fraction": 0.0,
+    "n": 224
+   },
+   "full_resolve": {
+    "median_ratio": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "speedup": Infinity,
+    "crr_zero_fraction": 0.6294642857142857,
+    "crr_worse_fraction": 0.0,
+    "n": 224
+   }
+  },
+  "wall_s": {
+   "warm_resolve": {
+    "median_ratio": 0.0013217444783936595,
+    "ci95": [
+     0.0011887129561912785,
+     0.0014260293701580478
+    ],
+    "speedup": 756.5758861465557,
+    "crr_zero_fraction": 0.0,
+    "crr_worse_fraction": 0.07142857142857142,
+    "n": 224
+   },
+   "footprint_resolve": {
+    "median_ratio": 0.0007974001243745754,
+    "ci95": [
+     0.0007042216749476688,
+     0.0008916962082363763
+    ],
+    "speedup": 1254.0755505704612,
+    "crr_zero_fraction": 0.0,
+    "crr_worse_fraction": 0.004464285714285714,
+    "n": 224
+   },
+   "full_resolve": {
+    "median_ratio": 0.0008169018371415181,
+    "ci95": [
+     0.0007147097521075653,
+     0.0010083703622542756
+    ],
+    "speedup": 1224.1372886357733,
+    "crr_zero_fraction": 0.0,
+    "crr_worse_fraction": 0.008928571428571428,
+    "n": 224
+   }
+  }
+ },
+ "per_form": {
+  "II": {
+   "n_caches": 144,
+   "N_entries": 24.0,
+   "crr_milp": 5.875,
+   "warm_milp": 24.0,
+   "footprint_milp": 24.0,
+   "full_milp": 24.0,
+   "crr_wall": 0.11609864473603516,
+   "warm_wall": 0.7941110509513641,
+   "full_wall": 0.7891313376389159,
+   "crr_energy_rebuilds": 88.125,
+   "full_energy_rebuilds": 360.0,
+   "stage_S1": 12.0,
+   "stage_S2": 6.125,
+   "stage_S4": 5.875,
+   "stale_violation_rate": 0.24479166666666666
+  },
+  "III": {
+   "n_caches": 16,
+   "N_entries": 24.0,
+   "crr_milp": 0.0,
+   "warm_milp": 24.0,
+   "footprint_milp": 24.0,
+   "full_milp": 24.0,
+   "crr_wall": 0.007917332437955338,
+   "warm_wall": 0.44356441431204985,
+   "full_wall": 0.7672032536872848,
+   "crr_energy_rebuilds": 0.0,
+   "full_energy_rebuilds": 360.0,
+   "stage_S1": 0.0,
+   "stage_S2": 24.0,
+   "stage_S4": 0.0,
+   "stale_violation_rate": 0.0
+  },
+  "I": {
+   "n_caches": 64,
+   "N_entries": 24.0,
+   "crr_milp": 6.0,
+   "warm_milp": 24.0,
+   "footprint_milp": 24.0,
+   "full_milp": 24.0,
+   "crr_wall": 0.22113551278124532,
+   "warm_wall": 0.5063286568126273,
+   "full_wall": 0.824358520468877,
+   "crr_energy_rebuilds": 90.0,
+   "full_energy_rebuilds": 360.0,
+   "stage_S1": 0.0,
+   "stage_S2": 18.0,
+   "stage_S4": 6.0,
+   "stale_violation_rate": 0.0
+  }
+ },
+ "severity_curve_II": [
+  {
+   "severity": 0.0,
+   "n": 32,
+   "label": "II speed<=22",
+   "crr_milp": 0.0,
+   "full_milp": 24.0,
+   "certified_S2": 0.0,
+   "stale_violation_rate": 0.0
+  },
+  {
+   "severity": 0.158,
+   "n": 16,
+   "label": "II speed<=19",
+   "crr_milp": 0.1875,
+   "full_milp": 24.0,
+   "certified_S2": 3.8125,
+   "stale_violation_rate": 0.0078125
+  },
+  {
+   "severity": 0.273,
+   "n": 16,
+   "label": "II alt<=90",
+   "crr_milp": 0.0,
+   "full_milp": 24.0,
+   "certified_S2": 24.0,
+   "stale_violation_rate": 0.0
+  },
+  {
+   "severity": 0.316,
+   "n": 16,
+   "label": "II speed<=16",
+   "crr_milp": 5.1875,
+   "full_milp": 24.0,
+   "certified_S2": 2.8125,
+   "stale_violation_rate": 0.21614583333333334
+  },
+  {
+   "severity": 0.474,
+   "n": 16,
+   "label": "II speed<=13",
+   "crr_milp": 11.5,
+   "full_milp": 24.0,
+   "certified_S2": 0.5,
+   "stale_violation_rate": 0.47916666666666663
+  },
+  {
+   "severity": 0.545,
+   "n": 16,
+   "label": "II alt<=60",
+   "crr_milp": 0.0,
+   "full_milp": 24.0,
+   "certified_S2": 24.0,
+   "stale_violation_rate": 0.0
+  },
+  {
+   "severity": 0.632,
+   "n": 16,
+   "label": "II speed<=10",
+   "crr_milp": 16.0,
+   "full_milp": 24.0,
+   "certified_S2": 0.0,
+   "stale_violation_rate": 0.6666666666666666
+  },
+  {
+   "severity": 0.789,
+   "n": 16,
+   "label": "II speed<=7",
+   "crr_milp": 20.0,
+   "full_milp": 24.0,
+   "certified_S2": 0.0,
+   "stale_violation_rate": 0.8333333333333334
+  }
+ ],
+ "stale_violation_rate_mean": 0.15736607142857142
+}

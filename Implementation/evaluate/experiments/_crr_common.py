@@ -44,9 +44,14 @@ def severity_grid(kind: str):
     raise ValueError(kind)
 
 
-def eval_point(cache, ref, with_stale: bool = False) -> dict:
-    """Run CRR + full-revalidation (ground truth) for one refinement and summarise."""
-    cres, mc = crr_revalidate(cache, ref)
+def eval_point(cache, ref, with_stale: bool = False, pivot_stats: bool = True) -> dict:
+    """Run CRR + full-revalidation (ground truth) for one refinement and summarise.
+
+    ``pivot_stats`` enables the warm-vs-cold pivot comparison, which costs an extra
+    cold solve per Stage-3 repair. That solve is instrumentation and is excluded
+    from the reported wall-clock.
+    """
+    cres, mc = crr_revalidate(cache, ref, collect_pivot_stats=pivot_stats)
     gt, mf = full_revalidation(cache, ref)
     gaps = [abs(cres[e].value - gt[e].value) for e in cache.entries if gt[e].feasible]
     max_gap = max(gaps) if gaps else 0.0

@@ -1,0 +1,313 @@
+{
+ "n_points": 52,
+ "n_void": 13,
+ "n_live": 39,
+ "void_reasons": [
+  "cache is argmin-homogeneous (every entry picks the same config): the ODD population cannot exercise revalidation at all"
+ ],
+ "primary_endpoint": {
+  "definition": "median paired log(crr/naive_recheck) of energy_evals on Track B",
+  "n_caches": 31,
+  "median_log_ratio": 0.0,
+  "median_ratio": 1.0,
+  "ci95_ratio": [
+   0.7905694150420948,
+   1.0
+  ],
+  "wilcoxon_p": 0.00048828125,
+  "practical_margin": 1.2,
+  "crr_cheaper_by": 1.0,
+  "meets_practical_margin": false
+ },
+ "exploratory": {
+  "track_B": {
+   "energy_evals": {
+    "crr_vs_naive_recheck": {
+     "median_ratio": 1.0,
+     "ci95_ratio": [
+      0.625,
+      1.0
+     ],
+     "crr_loses_rate": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.11218874692236996,
+      "n": 31,
+      "losses": 0
+     }
+    },
+    "crr_vs_footprint_resolve": {
+     "median_ratio": 1.0,
+     "ci95_ratio": [
+      1.0,
+      1.0
+     ],
+     "crr_loses_rate": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.11218874692236996,
+      "n": 31,
+      "losses": 0
+     }
+    },
+    "crr_vs_full_resolve": {
+     "median_ratio": 1.0,
+     "ci95_ratio": [
+      0.625,
+      1.0
+     ],
+     "crr_loses_rate": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.11218874692236996,
+      "n": 31,
+      "losses": 0
+     }
+    }
+   },
+   "resolves": {
+    "crr_vs_naive_recheck": {
+     "median_ratio": 1.0,
+     "ci95_ratio": [
+      1.0,
+      1.0
+     ],
+     "crr_loses_rate": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.2059072142078227,
+      "n": 16,
+      "losses": 0
+     }
+    },
+    "crr_vs_footprint_resolve": {
+     "median_ratio": 0.6454972243679028,
+     "ci95_ratio": [
+      0.5,
+      0.8100925873009825
+     ],
+     "crr_loses_rate": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.2059072142078227,
+      "n": 16,
+      "losses": 0
+     }
+    },
+    "crr_vs_full_resolve": {
+     "median_ratio": 0.5,
+     "ci95_ratio": [
+      0.4330127018922193,
+      0.5
+     ],
+     "crr_loses_rate": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.2059072142078227,
+      "n": 16,
+      "losses": 0
+     }
+    }
+   },
+   "solver_calls": {
+    "crr_vs_naive_recheck": {
+     "median_ratio": 1.0,
+     "ci95_ratio": [
+      1.0,
+      1.0
+     ],
+     "crr_loses_rate": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.2059072142078227,
+      "n": 16,
+      "losses": 0
+     }
+    },
+    "crr_vs_footprint_resolve": {
+     "median_ratio": 0.6454972243679028,
+     "ci95_ratio": [
+      0.5,
+      0.8100925873009825
+     ],
+     "crr_loses_rate": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.2059072142078227,
+      "n": 16,
+      "losses": 0
+     }
+    },
+    "crr_vs_full_resolve": {
+     "median_ratio": 0.5,
+     "ci95_ratio": [
+      0.4330127018922193,
+      0.5
+     ],
+     "crr_loses_rate": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.2059072142078227,
+      "n": 16,
+      "losses": 0
+     }
+    }
+   },
+   "wall_s": {
+    "crr_vs_naive_recheck": {
+     "median_ratio": 0.9294148812963992,
+     "ci95_ratio": [
+      0.7910815760360418,
+      0.9718190015313672
+     ],
+     "crr_loses_rate": {
+      "rate": 0.15384615384615385,
+      "lo": 0.05862426286078934,
+      "hi": 0.30527992443671265,
+      "n": 39,
+      "losses": 6
+     }
+    },
+    "crr_vs_footprint_resolve": {
+     "median_ratio": 0.2356549104068612,
+     "ci95_ratio": [
+      0.17073537777516887,
+      0.29140778080969787
+     ],
+     "crr_loses_rate": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.09025110096033431,
+      "n": 39,
+      "losses": 0
+     }
+    },
+    "crr_vs_full_resolve": {
+     "median_ratio": 0.19944825042447104,
+     "ci95_ratio": [
+      0.1702049587247142,
+      0.22731762327907803
+     ],
+     "crr_loses_rate": {
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.09025110096033431,
+      "n": 39,
+      "losses": 0
+     }
+    }
+   }
+  }
+ },
+ "severity_curves": {
+  "track_B_type_II": [
+   {
+    "severity": 0.25,
+    "n": 3,
+    "crr_resolves": 0.3333333333333333,
+    "naive_resolves": 0.3333333333333333,
+    "full_resolves": 8.0,
+    "crr_energy": 80.0,
+    "naive_energy": 1920.0,
+    "stale_violation_rate": 0.041666666666666664
+   },
+   {
+    "severity": 0.3,
+    "n": 3,
+    "crr_resolves": 0.3333333333333333,
+    "naive_resolves": 0.3333333333333333,
+    "full_resolves": 8.0,
+    "crr_energy": 80.0,
+    "naive_energy": 1920.0,
+    "stale_violation_rate": 0.041666666666666664
+   },
+   {
+    "severity": 0.35,
+    "n": 3,
+    "crr_resolves": 1.0,
+    "naive_resolves": 1.0,
+    "full_resolves": 8.0,
+    "crr_energy": 240.0,
+    "naive_energy": 1920.0,
+    "stale_violation_rate": 0.125
+   },
+   {
+    "severity": 0.45,
+    "n": 3,
+    "crr_resolves": 3.0,
+    "naive_resolves": 3.0,
+    "full_resolves": 8.0,
+    "crr_energy": 720.0,
+    "naive_energy": 1920.0,
+    "stale_violation_rate": 0.375
+   },
+   {
+    "severity": 0.55,
+    "n": 6,
+    "crr_resolves": 4.5,
+    "naive_resolves": 4.5,
+    "full_resolves": 8.0,
+    "crr_energy": 1080.0,
+    "naive_energy": 1920.0,
+    "stale_violation_rate": 0.5625
+   }
+  ],
+  "track_B_type_III": [
+   {
+    "severity": 1.0,
+    "n": 6,
+    "crr_resolves": 4.166666666666667,
+    "naive_resolves": 4.166666666666667,
+    "full_resolves": 8.0,
+    "crr_energy": 1640.0,
+    "naive_energy": 1920.0,
+    "stale_violation_rate": 0.0
+   }
+  ],
+  "track_B_type_I": [
+   {
+    "severity": 0.5,
+    "n": 3,
+    "crr_resolves": 0.0,
+    "naive_resolves": 0.0,
+    "full_resolves": 8.0,
+    "crr_energy": 1920.0,
+    "naive_energy": 1920.0,
+    "stale_violation_rate": 0.0
+   },
+   {
+    "severity": 1.0,
+    "n": 3,
+    "crr_resolves": 0.0,
+    "naive_resolves": 0.0,
+    "full_resolves": 8.0,
+    "crr_energy": 1920.0,
+    "naive_energy": 1920.0,
+    "stale_violation_rate": 0.0
+   },
+   {
+    "severity": 1.5,
+    "n": 6,
+    "crr_resolves": 0.0,
+    "naive_resolves": 0.0,
+    "full_resolves": 8.0,
+    "crr_energy": 1320.0,
+    "naive_energy": 1920.0,
+    "stale_violation_rate": 0.0
+   },
+   {
+    "severity": 2.0,
+    "n": 3,
+    "crr_resolves": 0.0,
+    "naive_resolves": 0.0,
+    "full_resolves": 8.0,
+    "crr_energy": 1920.0,
+    "naive_energy": 1920.0,
+    "stale_violation_rate": 0.0
+   }
+  ]
+ },
+ "footprint_equals_full_fraction": 0.7435897435897436,
+ "mean_footprint_fraction": 0.8653846153846154,
+ "stale_violation_rate_mean": 0.13141025641025642
+}

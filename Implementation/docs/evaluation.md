@@ -1,5 +1,37 @@
 # Evaluation
 
+> **⚠ Superseded for RQ1 and RQ3 — see [`realworld-evaluation.md`](realworld-evaluation.md).**
+>
+> Several results below are consequences of the experiment's construction rather than
+> measurements of CRR. Each was verified by running the code:
+>
+> - **The Type-III result is a tautology.** `refine_type_III` is a *uniform* scale
+>   `base*(1+delta)`, and `argmin_k Σ_j E[k,j]` is scale-invariant, so the ranking is
+>   preserved for **any** delta (identical from 0.05 to **100**; cost-ratio spread
+>   `4.4e-16`). "Type III holds at 100% because the ranking is preserved" restates the
+>   operator's definition. It is also bit-identical to the wind factor the cache is
+>   keyed on.
+> - **"Zero MILP re-solves" understates the work done.** Stage 2's `_cheapest_config`
+>   rebuilds the whole energy matrix and argmins it — **35** energy-model evaluations,
+>   exactly what `solve()` performs — but is counted as `n_arith` ("no solver"). This is
+>   why the 100% call reduction coexists with the ~1× wall-clock reported below.
+> - **`S1 = 0` in every row is structural**, not incidental: every entry depends on
+>   `obj_coeffs`/`battery_row`, so a global footprint matches all 16 entries.
+> - **The `cr(e)` / ε(Z_e) machinery is not in the evaluated path.** `crr_revalidate`
+>   never reads it; `residual_radius` is 11.649074 for *every* entry and ~18× larger
+>   than the margin it must beat, so it could never fire.
+> - **The baseline re-solves entries it knows are untouched** (`applies_to(e) == False`).
+> - **N = 1**: one scenario, one seed, a 16-point linspace on a single scalar.
+>
+> Underneath all of them: one "expensive MILP call" here is **4.89 ms** and the entire
+> cache revalidates in **78 ms**, on a 20-binary-variable problem — there is no expensive
+> optimizer to avoid at this scale.
+>
+> **The RQ2 (correctness) result stands**, and the Stage-3 warm dual-simplex claim stands
+> at **18.6×** (133 warm vs 2474 cold pivots; previously 22× against a slower cold solve).
+> Type II is the only warm-startable case here — Types I/III change the constraint matrix,
+> so they correctly cold-solve.
+
 We evaluate Certified Refinement Revalidation (CRR) against three research
 questions:
 

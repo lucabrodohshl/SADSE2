@@ -406,3 +406,6 @@ Implementation/results/reports/figures/
 # Example tutorial scratch output (written to the run directory)
 Implementation/basic_2d_cache_vis.png
 Implementation/results_drone_4d/
+
+## Claude Code session artifacts (worktrees, local state)
+.claude/

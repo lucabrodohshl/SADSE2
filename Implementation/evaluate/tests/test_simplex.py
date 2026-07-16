@@ -149,3 +149,119 @@ def test_milp_integer_bounds_matches_scipy():
     res = solve_milp(c=c, A_ub=A, b_ub=b, bounds=bounds, integer_mask=integ)
     assert res.status == "optimal"
     assert abs(res.obj - ref.fun) < 1e-6 * (1 + abs(ref.fun))
+
+
+# ---------------------------------------------------------------------------
+# Regression tests for two soundness bugs.
+# ---------------------------------------------------------------------------
+def _binpack_lp(rng, M=3, J=5, slack=1.35):
+    """A small bin-packing LP plus a random objective, in scipy.linprog form."""
+    E = rng.uniform(1.0, 6.0, size=J)
+    n = M * J
+    A_eq = np.zeros((J, n))
+    for j in range(J):
+        for i in range(M):
+            A_eq[j, i * J + j] = 1.0
+    A_ub = np.zeros((M, n))
+    for i in range(M):
+        for j in range(J):
+            A_ub[i, i * J + j] = E[j]
+    b_ub = np.full(M, float(E.sum()) / M * slack)
+    c = rng.uniform(0.1, 2.0, size=n)
+    return c, A_ub, b_ub, A_eq, np.ones(J), [(0.0, 1.0)] * n
+
+
+def test_dual_simplex_never_claims_optimal_at_a_suboptimal_point():
+    """dual_simplex needs a DUAL-feasible basis; an objective change destroys that.
+
+    Warm-starting it anyway used to terminate at a primal-feasible but SUBOPTIMAL point
+    while reporting "optimal" (measured: 107/200 random instances, worst 12.16% error).
+
+    The invariant is not "it always refuses" -- some perturbations happen to leave the
+    basis dual-feasible, and answering those is correct. The invariant is that it never
+    returns a WRONG answer labelled "optimal": every call must either refuse, or match
+    the cold solve.
+    """
+    from src.crr.simplex import _standardize, dual_simplex, solve_standard
+
+    rng = np.random.RandomState(0)
+    refused = answered = 0
+    for _ in range(40):
+        c0, A_ub, b_ub, A_eq, b_eq, bnds = _binpack_lp(rng)
+        cs0, A, b, lo, hi, _ = _standardize(c0, A_ub, b_ub, A_eq, b_eq, bnds)
+        r0 = solve_standard(cs0, A, b, lo, hi)
+        if r0.status != "optimal":
+            continue
+        c1 = c0 * rng.uniform(1.0, 1.6, size=len(c0))     # NON-uniform objective change
+        cs1, A1, b1, lo1, hi1, _ = _standardize(c1, A_ub, b_ub, A_eq, b_eq, bnds)
+        try:
+            warm = dual_simplex(cs1, A1, b1, lo1, hi1, r0.basic, r0.at_upper)
+        except ValueError:
+            refused += 1
+            continue
+        cold = solve_standard(cs1, A1, b1, lo1, hi1)
+        if warm.status == "optimal" and cold.status == "optimal":
+            answered += 1
+            assert warm.obj <= cold.obj + 1e-7 * max(1.0, abs(cold.obj)), (
+                "dual_simplex returned a suboptimal point labelled 'optimal'")
+    assert refused + answered > 0
+    assert refused > 0, "the guard never fired on any invalid warm start"
+
+
+def test_primal_warm_is_sound_after_an_objective_change():
+    """primal_warm is the valid warm start when only c changed: A and b are untouched,
+    so the stored basis stays PRIMAL-feasible."""
+    from src.crr.simplex import _standardize, primal_warm, solve_standard
+
+    rng = np.random.RandomState(1)
+    checked = 0
+    for _ in range(40):
+        c0, A_ub, b_ub, A_eq, b_eq, bnds = _binpack_lp(rng)
+        cs0, A, b, lo, hi, _ = _standardize(c0, A_ub, b_ub, A_eq, b_eq, bnds)
+        r0 = solve_standard(cs0, A, b, lo, hi)
+        if r0.status != "optimal":
+            continue
+        c1 = c0 * rng.uniform(1.0, 1.6, size=len(c0))
+        cs1, A1, b1, lo1, hi1, _ = _standardize(c1, A_ub, b_ub, A_eq, b_eq, bnds)
+        warm = primal_warm(cs1, A1, b1, lo1, hi1, r0.basic, r0.at_upper)
+        cold = solve_standard(cs1, A1, b1, lo1, hi1)
+        if warm.status == "optimal" and cold.status == "optimal":
+            checked += 1
+            assert warm.obj <= cold.obj + 1e-7 * max(1.0, abs(cold.obj))
+    assert checked > 0
+
+
+def test_dual_simplex_still_accepts_an_rhs_only_change():
+    """The legitimate warm start must keep working: an RHS tightening preserves dual
+    feasibility, so it must NOT be refused."""
+    from src.crr.simplex import _standardize, dual_simplex, solve_standard
+
+    rng = np.random.RandomState(2)
+    checked = 0
+    for _ in range(30):
+        c0, A_ub, b_ub, A_eq, b_eq, bnds = _binpack_lp(rng, slack=1.5)
+        cs0, A, b, lo, hi, _ = _standardize(c0, A_ub, b_ub, A_eq, b_eq, bnds)
+        r0 = solve_standard(cs0, A, b, lo, hi)
+        if r0.status != "optimal":
+            continue
+        cs2, A2, b2, lo2, hi2, _ = _standardize(c0, A_ub, b_ub * 0.8, A_eq, b_eq, bnds)
+        warm = dual_simplex(cs2, A2, b2, lo2, hi2, r0.basic, r0.at_upper)   # must not raise
+        cold = solve_standard(cs2, A2, b2, lo2, hi2)
+        if warm.status == "optimal" and cold.status == "optimal":
+            checked += 1
+            assert abs(warm.obj - cold.obj) < 1e-6 * max(1.0, abs(cold.obj))
+    assert checked > 0
+
+
+def test_node_limit_is_not_reported_as_optimal():
+    """A truncated search must be distinguishable from a proven optimum, otherwise it
+    can silently corrupt any ground truth derived from it."""
+    rng = np.random.RandomState(7)
+    c, A_ub, b_ub, A_eq, b_eq, bnds = _binpack_lp(rng, M=4, J=6, slack=1.2)
+    kw = dict(c=c, A_ub=A_ub, b_ub=b_ub, A_eq=A_eq, b_eq=b_eq, bounds=bnds,
+              integer_mask=[1] * len(c))
+    truncated = solve_milp(max_nodes=1, **kw)
+    assert truncated.status == "node_limit"
+
+    full = solve_milp(**kw)
+    assert full.status in ("optimal", "infeasible")

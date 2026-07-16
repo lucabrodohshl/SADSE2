@@ -20,7 +20,7 @@ import numpy as np
 from src.milp_solver import drone_energy_model
 from .branch_and_bound import solve_milp
 from .scenario import Scenario
-from .simplex import INF, LPResult, _standardize, dual_simplex, solve_standard
+from .simplex import INF, LPResult, _standardize, dual_simplex, primal_warm, solve_standard
 
 
 @dataclass
@@ -142,6 +142,17 @@ class OptModel:
         """
         cs, A, b, lo, hi, n = self._binpack_standard(config_idx, usable)
         return dual_simplex(cs, A, b, lo, hi, basic, at_upper)
+
+    def binpack_warm_primal(self, config_idx: int, basic, at_upper,
+                            usable: Optional[float] = None) -> LPResult:
+        """Warm *primal* re-solve of the bin-packing LP after the OBJECTIVE changed.
+
+        Type I/III refinements change the energy coefficients, which leaves the
+        stored basis primal-feasible but not dual-feasible -- the case
+        :func:`dual_simplex` may not be used for.
+        """
+        cs, A, b, lo, hi, n = self._binpack_standard(config_idx, usable)
+        return primal_warm(cs, A, b, lo, hi, basic, at_upper)
 
     def binpack_feasible(self, config_idx: int):
         """Is there an integral battery-feasible assignment for this config? (own B&B)"""

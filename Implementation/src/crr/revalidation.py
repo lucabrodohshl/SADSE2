@@ -34,10 +34,17 @@ def _cheapest_config(model: OptModel) -> int:
     return costs[0][1]
 
 
-def crr_revalidate(cache: Cache, ref: Refinement, tau_req: float = 0.0
+def crr_revalidate(cache: Cache, ref: Refinement, tau_req: float = 0.0,
+                   collect_pivot_stats: bool = False
                    ) -> Tuple[Dict[Entry, RevalResult], CRRMetrics]:
-    """Revalidate ``cache`` under refinement ``ref`` via the 4-stage pipeline."""
+    """Revalidate ``cache`` under refinement ``ref`` via the 4-stage pipeline.
+
+    ``collect_pivot_stats`` additionally cold-solves each Stage-3 repair to report
+    the warm-vs-cold pivot comparison. That solve is instrumentation, not part of
+    the algorithm, so its cost is excluded from ``wall_s``.
+    """
     t0 = time.perf_counter()
+    instrumentation_s = 0.0
     m = CRRMetrics(total_entries=len(cache.entries))
     results: Dict[Entry, RevalResult] = {}
 
@@ -68,18 +75,31 @@ def crr_revalidate(cache: Cache, ref: Refinement, tau_req: float = 0.0
             m.stage_counts["S2"] += 1
             handled = True
 
-        # ---- Stage 3: warm dual-simplex repair (same optimum, re-assign) ------
+        # ---- Stage 3: warm simplex repair (same optimum, re-assign) ----------
         elif ranking_preserved and "binpack_basis" in e.cert:
             m.n_lp += 1
             basic, at_upper = e.cert["binpack_basis"]
             if ref.kind == "II":
-                # Only the battery RHS changed -> warm-start the LP from the stored basis.
+                # Type II changes only ``usable`` -> the battery RHS. A and c are
+                # untouched, so the stored basis stays dual-feasible and the dual
+                # simplex is the valid warm start.
                 lp = M1.binpack_warm(e.config_idx, basic, at_upper)
                 m.warm_pivots += lp.n_pivots
-                m.cold_pivots += M1.binpack_lp(e.config_idx).n_pivots   # warm-vs-cold report
             else:
-                lp = M1.binpack_lp(e.config_idx)        # E changed -> cold LP repair
+                # Type I/III change the energy matrix E, which in this model enters
+                # the battery CONSTRAINT rows (A_ub), not the objective -- the LP's
+                # objective is a pure tie-break. A changed A preserves neither primal
+                # nor dual feasibility of the stored basis, so no warm start is valid
+                # and the repair must cold-solve.
+                lp = M1.binpack_lp(e.config_idx)
                 m.cold_pivots += lp.n_pivots
+            if collect_pivot_stats and ref.kind == "II":
+                # Instrumentation only: what a cold solve of the same warm-started
+                # repair would cost. Timed separately so it never inflates wall_s.
+                # Only meaningful for Type II, the sole warm-startable case here.
+                t_i = time.perf_counter()
+                m.cold_pivots += M1.binpack_lp(e.config_idx).n_pivots
+                instrumentation_s += time.perf_counter() - t_i
             # LP feasible => the cheapest config may still be packable. Try a cheap
             # rounding of the warm LP first; only confirm with the engine if needed.
             if lp.status == "optimal":
@@ -100,5 +120,5 @@ def crr_revalidate(cache: Cache, ref: Refinement, tau_req: float = 0.0
             results[e] = RevalResult(r.config_idx, r.value, r.feasible, "S4")
             m.stage_counts["S4"] += 1
 
-    m.wall_s = time.perf_counter() - t0
+    m.wall_s = (time.perf_counter() - t0) - instrumentation_s
     return results, m

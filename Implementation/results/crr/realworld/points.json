@@ -1,0 +1,3739 @@
+{
+ "config": {
+  "fleet": [
+   5,
+   6,
+   8
+  ],
+  "cache_n": 8,
+  "seeds": 4,
+  "backend": "engine",
+  "primary": {
+   "metric": "energy_evals",
+   "a": "crr",
+   "b": "naive_recheck",
+   "track": "B",
+   "practical_margin": 1.2
+  }
+ },
+ "points": [
+  {
+   "seed": 0,
+   "climatology": "berlin_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=1.50kg",
+   "severity": 1.5,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 0.125,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.0626008159997582,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 240,
+     "solver_calls": 1,
+     "resolves": 1,
+     "wall_s": 0.033094767000875436,
+     "stages": {
+      "reuse": 7,
+      "cert": 0,
+      "resolve": 1
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.4114790269995865,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 240,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.008395924000069499,
+     "stages": {
+      "reuse": 7,
+      "cert": 1,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 0,
+   "climatology": "berlin_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.30",
+   "severity": 0.3,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 0.375,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06649699700028577,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 720,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 0.1434711439997045,
+     "stages": {
+      "reuse": 5,
+      "cert": 0,
+      "resolve": 3
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.3708718639991275,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 0,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.00012580799921124708,
+     "stages": {
+      "reuse": 5,
+      "cert": 3,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 0,
+   "climatology": "berlin_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=2.00kg",
+   "severity": 2.0,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.0679234989984252,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.29255609400024696,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.27590969299853896,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.04429134700149007,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 0,
+   "climatology": "berlin_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.35",
+   "severity": 0.35000000000000003,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06746922199999972,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.3374544190010056,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.33987589300159016,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 0,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.00018361299953539856,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 1,
+   "climatology": "berlin_winter",
+   "track": "B",
+   "backend": "engine",
+   "kind": "III",
+   "label": "M0->M1",
+   "severity": 1.0,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 1,
+     "resolves": 1,
+     "wall_s": 0.10106543999972928,
+     "stages": {
+      "reuse": 0,
+      "cert": 7,
+      "resolve": 1
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.35385608000069624,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.3542894250003883,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 1,
+     "resolves": 1,
+     "wall_s": 0.1031164149990218,
+     "stages": {
+      "reuse": 0,
+      "cert": 7,
+      "resolve": 1
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 0,
+   "climatology": "berlin_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "III",
+   "label": "M0->M1",
+   "severity": 1.0,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 0.5,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 0.1922074230005819,
+     "stages": {
+      "reuse": 0,
+      "cert": 5,
+      "resolve": 3
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 960,
+     "solver_calls": 4,
+     "resolves": 4,
+     "wall_s": 0.18075514500014833,
+     "stages": {
+      "reuse": 4,
+      "cert": 0,
+      "resolve": 4
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.385670712999854,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 960,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 0.157212428001003,
+     "stages": {
+      "reuse": 4,
+      "cert": 1,
+      "resolve": 3
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 0,
+   "climatology": "berlin_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=0.50kg",
+   "severity": 0.5,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06904309499986994,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.40273854400038545,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.3853755460004322,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06768920099966635,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 1,
+   "climatology": "berlin_winter",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.30",
+   "severity": 0.3,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 0.5,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 1,
+     "resolves": 1,
+     "wall_s": 0.15648319899992202,
+     "stages": {
+      "reuse": 0,
+      "cert": 7,
+      "resolve": 1
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 960,
+     "solver_calls": 4,
+     "resolves": 4,
+     "wall_s": 0.36645186900022964,
+     "stages": {
+      "reuse": 4,
+      "cert": 0,
+      "resolve": 4
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.6059622950015182,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 240,
+     "solver_calls": 1,
+     "resolves": 1,
+     "wall_s": 0.12757529400005296,
+     "stages": {
+      "reuse": 4,
+      "cert": 3,
+      "resolve": 1
+     }
+    }
+   },
+   "stale_violation_rate": 0.125,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 0,
+   "climatology": "berlin_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=1.50kg",
+   "severity": 1.5,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.08748439000009967,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.5192466249991412,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.5319003940003313,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.08762668199960899,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 0,
+   "climatology": "berlin_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=1.00kg",
+   "severity": 1.0,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.09035484099877067,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.505545764000999,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.5071212240000023,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.08631454699934693,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 0,
+   "climatology": "berlin_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "III",
+   "label": "M0->M1",
+   "severity": 1.0,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 7,
+     "resolves": 7,
+     "wall_s": 0.3649723210000957,
+     "stages": {
+      "reuse": 0,
+      "cert": 1,
+      "resolve": 7
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.3838366500003758,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.3888531349984987,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 7,
+     "resolves": 7,
+     "wall_s": 0.3882352889995673,
+     "stages": {
+      "reuse": 0,
+      "cert": 1,
+      "resolve": 7
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 0,
+   "climatology": "berlin_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.45",
+   "severity": 0.45000000000000007,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 1,
+     "resolves": 1,
+     "wall_s": 0.2644386210013181,
+     "stages": {
+      "reuse": 0,
+      "cert": 7,
+      "resolve": 1
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.49083090299973264,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.49057951999930083,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 240,
+     "solver_calls": 1,
+     "resolves": 1,
+     "wall_s": 0.2025306260002253,
+     "stages": {
+      "reuse": 0,
+      "cert": 7,
+      "resolve": 1
+     }
+    }
+   },
+   "stale_violation_rate": 0.125,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 1,
+   "climatology": "berlin_winter",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=1.00kg",
+   "severity": 1.0,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.0499034650001704,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.25212722700052836,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.25640075900082593,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.04638102299941238,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 1,
+   "climatology": "berlin_winter",
+   "track": "B",
+   "backend": "engine",
+   "kind": "III",
+   "label": "M0->M1",
+   "severity": 1.0,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 0.625,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.08983104299841216,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1200,
+     "solver_calls": 5,
+     "resolves": 5,
+     "wall_s": 0.29929266199906124,
+     "stages": {
+      "reuse": 3,
+      "cert": 0,
+      "resolve": 5
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.46169772800021747,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1200,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.060430186000303365,
+     "stages": {
+      "reuse": 3,
+      "cert": 5,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 2,
+   "climatology": "bergen_autumn",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.35",
+   "severity": 0.35000000000000003,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.05342828700122482,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.24131588599993847,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.2594083049989422,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 0,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.0001250139994226629,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 3,
+    "argmin_migration_rate": 0.2857142857142857,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 1,
+   "climatology": "berlin_winter",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=1.50kg",
+   "severity": 1.5,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.0677991890006524,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.3572803199986083,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.3661533039994538,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.0698641309991217,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 1,
+   "climatology": "berlin_winter",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=0.50kg",
+   "severity": 0.5,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.0699069470010727,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.5168389310001658,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.36018999599946255,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06922319099976448,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 2,
+   "climatology": "bergen_autumn",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.25",
+   "severity": 0.25,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.0686266960001376,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.35478826299913635,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.3190514569996594,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 0,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.00019773299936787225,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 3,
+    "argmin_migration_rate": 0.2857142857142857,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 0,
+   "climatology": "berlin_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.55",
+   "severity": 0.55,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 0.375,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 2,
+     "resolves": 2,
+     "wall_s": 0.47103450299982796,
+     "stages": {
+      "reuse": 0,
+      "cert": 6,
+      "resolve": 2
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 720,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 0.4934826320004504,
+     "stages": {
+      "reuse": 5,
+      "cert": 0,
+      "resolve": 3
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.621865095999965,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 480,
+     "solver_calls": 2,
+     "resolves": 2,
+     "wall_s": 0.3726267170004576,
+     "stages": {
+      "reuse": 5,
+      "cert": 1,
+      "resolve": 2
+     }
+    }
+   },
+   "stale_violation_rate": 0.25,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 1,
+   "climatology": "berlin_winter",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=1.50kg",
+   "severity": 1.5,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.07002058499892883,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.3573088020002615,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.35972462100107805,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06804733500030125,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 1,
+   "climatology": "berlin_winter",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=2.00kg",
+   "severity": 2.0,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06722571200043603,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.39949500399961835,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.38285525900028006,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06772716600062267,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 2,
+   "climatology": "bergen_autumn",
+   "track": "B",
+   "backend": "engine",
+   "kind": "III",
+   "label": "M0->M1",
+   "severity": 1.0,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 7,
+     "resolves": 7,
+     "wall_s": 0.18935884200072906,
+     "stages": {
+      "reuse": 0,
+      "cert": 1,
+      "resolve": 7
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.20698278800045955,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.2220490100007737,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 7,
+     "resolves": 7,
+     "wall_s": 0.18123034400014149,
+     "stages": {
+      "reuse": 0,
+      "cert": 1,
+      "resolve": 7
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 3,
+    "argmin_migration_rate": 0.2857142857142857,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 1,
+   "climatology": "berlin_winter",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.25",
+   "severity": 0.25,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 1,
+     "resolves": 1,
+     "wall_s": 0.6750761000002967,
+     "stages": {
+      "reuse": 0,
+      "cert": 7,
+      "resolve": 1
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.1023283409995202,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.8090627700003097,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 240,
+     "solver_calls": 1,
+     "resolves": 1,
+     "wall_s": 0.42019490499842505,
+     "stages": {
+      "reuse": 0,
+      "cert": 7,
+      "resolve": 1
+     }
+    }
+   },
+   "stale_violation_rate": 0.125,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 2,
+   "climatology": "bergen_autumn",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.45",
+   "severity": 0.45000000000000007,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.08843019100095262,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.39246329400157265,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.3913678760000039,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 0,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.00024098899848468136,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 3,
+    "argmin_migration_rate": 0.2857142857142857,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 2,
+   "climatology": "bergen_autumn",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.30",
+   "severity": 0.3,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 0.875,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.10674185500101885,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1680,
+     "solver_calls": 7,
+     "resolves": 7,
+     "wall_s": 0.36090913500083843,
+     "stages": {
+      "reuse": 1,
+      "cert": 0,
+      "resolve": 7
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.43260310100049537,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 0,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.00026636599977791775,
+     "stages": {
+      "reuse": 1,
+      "cert": 7,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 3,
+    "argmin_migration_rate": 0.2857142857142857,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 1,
+   "climatology": "berlin_winter",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.55",
+   "severity": 0.55,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 0.5,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 4,
+     "resolves": 4,
+     "wall_s": 0.775958020998587,
+     "stages": {
+      "reuse": 0,
+      "cert": 4,
+      "resolve": 4
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 960,
+     "solver_calls": 4,
+     "resolves": 4,
+     "wall_s": 0.7534749359983834,
+     "stages": {
+      "reuse": 4,
+      "cert": 0,
+      "resolve": 4
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.9342187559996091,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 960,
+     "solver_calls": 4,
+     "resolves": 4,
+     "wall_s": 0.7535620159997052,
+     "stages": {
+      "reuse": 4,
+      "cert": 0,
+      "resolve": 4
+     }
+    }
+   },
+   "stale_violation_rate": 0.5,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 2,
+   "climatology": "bergen_autumn",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=0.50kg",
+   "severity": 0.5,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06292907500028377,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.33551281800100696,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.28169264899952395,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.05618310600038967,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 3,
+    "argmin_migration_rate": 0.2857142857142857,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 2,
+   "climatology": "bergen_autumn",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=1.50kg",
+   "severity": 1.5,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06761263699991105,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.30047573699994246,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.30179140099971846,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06860250400131918,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 3,
+    "argmin_migration_rate": 0.2857142857142857,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 2,
+   "climatology": "bergen_autumn",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=1.00kg",
+   "severity": 1.0,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06808306799939601,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.3034322980001889,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.30058123500020884,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.07150531099978252,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 3,
+    "argmin_migration_rate": 0.2857142857142857,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 2,
+   "climatology": "bergen_autumn",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=1.50kg",
+   "severity": 1.5,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 0.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.09149458700085233,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 0,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 2.9621998692164198e-05,
+     "stages": {
+      "reuse": 8,
+      "cert": 0,
+      "resolve": 0
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.40134637899973313,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 0,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 2.788500023598317e-05,
+     "stages": {
+      "reuse": 8,
+      "cert": 0,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 3,
+    "argmin_migration_rate": 0.2857142857142857,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 2,
+   "climatology": "bergen_autumn",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=2.00kg",
+   "severity": 2.0,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.0689827679998416,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.30640165300064837,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.3034416139998939,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.0734067449993745,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 3,
+    "argmin_migration_rate": 0.2857142857142857,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 2,
+   "climatology": "bergen_autumn",
+   "track": "B",
+   "backend": "engine",
+   "kind": "III",
+   "label": "M0->M1",
+   "severity": 1.0,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 7,
+     "resolves": 7,
+     "wall_s": 0.2528618309988815,
+     "stages": {
+      "reuse": 0,
+      "cert": 1,
+      "resolve": 7
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.28035160600120435,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.28367707599863934,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 7,
+     "resolves": 7,
+     "wall_s": 0.2560709949993907,
+     "stages": {
+      "reuse": 0,
+      "cert": 1,
+      "resolve": 7
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 3,
+    "argmin_migration_rate": 0.2857142857142857,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 0,
+   "climatology": "berlin_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.25",
+   "severity": 0.25,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.22657151800012798,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.546262112000477,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.6919733750000887,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 0,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.0007574810006190091,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 1,
+   "climatology": "berlin_winter",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.35",
+   "severity": 0.35000000000000003,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 0.8308551329992042,
+     "stages": {
+      "reuse": 0,
+      "cert": 5,
+      "resolve": 3
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.5616400920007436,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.8737758829993254,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 720,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 1.520394467999722,
+     "stages": {
+      "reuse": 0,
+      "cert": 5,
+      "resolve": 3
+     }
+    }
+   },
+   "stale_violation_rate": 0.375,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 1,
+   "climatology": "berlin_winter",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.55",
+   "severity": 0.55,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.390543883000646,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.410964750999483,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.4462299309998343,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.4656087219991605,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    }
+   },
+   "stale_violation_rate": 1.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 3,
+   "climatology": "madrid_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "III",
+   "label": "M0->M1",
+   "severity": 1.0,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.4095558120006899,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.3991209590003564,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.39950546200088866,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.4019864649999363,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 1,
+    "argmin_migration_rate": 0.0,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 1,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": false,
+   "validity_failures": [
+    "cache is argmin-homogeneous (every entry picks the same config): the ODD population cannot exercise revalidation at all"
+   ]
+  },
+  {
+   "seed": 3,
+   "climatology": "madrid_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "III",
+   "label": "M0->M1",
+   "severity": 1.0,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 0.375,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 0.19120901799942658,
+     "stages": {
+      "reuse": 0,
+      "cert": 5,
+      "resolve": 3
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 720,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 0.14663685400046234,
+     "stages": {
+      "reuse": 5,
+      "cert": 0,
+      "resolve": 3
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.1613661299998057,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 720,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 0.15811758199924952,
+     "stages": {
+      "reuse": 5,
+      "cert": 0,
+      "resolve": 3
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 1,
+    "argmin_migration_rate": 0.0,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 1,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": false,
+   "validity_failures": [
+    "cache is argmin-homogeneous (every entry picks the same config): the ODD population cannot exercise revalidation at all"
+   ]
+  },
+  {
+   "seed": 3,
+   "climatology": "madrid_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=1.50kg",
+   "severity": 1.5,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 0.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06991981900137034,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 0,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 1.2528000297606923e-05,
+     "stages": {
+      "reuse": 8,
+      "cert": 0,
+      "resolve": 0
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.31250374100091,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 0,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 1.856199924077373e-05,
+     "stages": {
+      "reuse": 8,
+      "cert": 0,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 1,
+    "argmin_migration_rate": 0.0,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 1,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": false,
+   "validity_failures": [
+    "cache is argmin-homogeneous (every entry picks the same config): the ODD population cannot exercise revalidation at all"
+   ]
+  },
+  {
+   "seed": 2,
+   "climatology": "bergen_autumn",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.55",
+   "severity": 0.55,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 0.875,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 4,
+     "resolves": 4,
+     "wall_s": 1.2862659599995823,
+     "stages": {
+      "reuse": 0,
+      "cert": 4,
+      "resolve": 4
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1680,
+     "solver_calls": 7,
+     "resolves": 7,
+     "wall_s": 1.3754542140013655,
+     "stages": {
+      "reuse": 1,
+      "cert": 0,
+      "resolve": 7
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.4116976179993799,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 960,
+     "solver_calls": 4,
+     "resolves": 4,
+     "wall_s": 1.241715670999838,
+     "stages": {
+      "reuse": 1,
+      "cert": 3,
+      "resolve": 4
+     }
+    }
+   },
+   "stale_violation_rate": 0.5,
+   "validity": {
+    "distinct_argmins": 3,
+    "argmin_migration_rate": 0.2857142857142857,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 3,
+   "climatology": "madrid_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=0.50kg",
+   "severity": 0.5,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.0685046529997635,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.3105736219986284,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.273892323999462,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06591566399947624,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 1,
+    "argmin_migration_rate": 0.0,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 1,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": false,
+   "validity_failures": [
+    "cache is argmin-homogeneous (every entry picks the same config): the ODD population cannot exercise revalidation at all"
+   ]
+  },
+  {
+   "seed": 3,
+   "climatology": "madrid_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=1.00kg",
+   "severity": 1.0,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06929348599987861,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.3117049160009628,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.2758520229999704,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.06737946899920644,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 1,
+    "argmin_migration_rate": 0.0,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 1,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": false,
+   "validity_failures": [
+    "cache is argmin-homogeneous (every entry picks the same config): the ODD population cannot exercise revalidation at all"
+   ]
+  },
+  {
+   "seed": 3,
+   "climatology": "madrid_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=1.50kg",
+   "severity": 1.5,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.09292537199871731,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.1665866519997508,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.7976243269986298,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.04038830799981952,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 1,
+    "argmin_migration_rate": 0.0,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 1,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": false,
+   "validity_failures": [
+    "cache is argmin-homogeneous (every entry picks the same config): the ODD population cannot exercise revalidation at all"
+   ]
+  },
+  {
+   "seed": 3,
+   "climatology": "madrid_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "I",
+   "label": "payload=2.00kg",
+   "severity": 2.0,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.07060762899891415,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.2907515839997359,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.538085816999228,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 0,
+     "resolves": 0,
+     "wall_s": 0.16502057700017758,
+     "stages": {
+      "reuse": 0,
+      "cert": 8,
+      "resolve": 0
+     }
+    }
+   },
+   "stale_violation_rate": 0.0,
+   "validity": {
+    "distinct_argmins": 1,
+    "argmin_migration_rate": 0.0,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 1,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": false,
+   "validity_failures": [
+    "cache is argmin-homogeneous (every entry picks the same config): the ODD population cannot exercise revalidation at all"
+   ]
+  },
+  {
+   "seed": 1,
+   "climatology": "berlin_winter",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.45",
+   "severity": 0.45000000000000007,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 2.20577561799837,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 2.116728774999501,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.4821165619996464,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 0.779565155000455,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    }
+   },
+   "stale_violation_rate": 1.0,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 2,
+   "climatology": "bergen_autumn",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.55",
+   "severity": 0.55,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 4,
+     "resolves": 4,
+     "wall_s": 1.7313392319993,
+     "stages": {
+      "reuse": 0,
+      "cert": 4,
+      "resolve": 4
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.8768512639999244,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.4980464899999788,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 960,
+     "solver_calls": 4,
+     "resolves": 4,
+     "wall_s": 0.9756412959995941,
+     "stages": {
+      "reuse": 0,
+      "cert": 4,
+      "resolve": 4
+     }
+    }
+   },
+   "stale_violation_rate": 0.5,
+   "validity": {
+    "distinct_argmins": 3,
+    "argmin_migration_rate": 0.2857142857142857,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 0,
+   "climatology": "berlin_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.55",
+   "severity": 0.55,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 5,
+     "resolves": 5,
+     "wall_s": 2.1372049750007136,
+     "stages": {
+      "reuse": 0,
+      "cert": 3,
+      "resolve": 5
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 2.28662076999899,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 2.2599956230005773,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1200,
+     "solver_calls": 5,
+     "resolves": 5,
+     "wall_s": 2.2507187409992184,
+     "stages": {
+      "reuse": 0,
+      "cert": 3,
+      "resolve": 5
+     }
+    }
+   },
+   "stale_violation_rate": 0.625,
+   "validity": {
+    "distinct_argmins": 2,
+    "argmin_migration_rate": 0.14285714285714285,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 2,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": true,
+   "validity_failures": []
+  },
+  {
+   "seed": 3,
+   "climatology": "madrid_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.35",
+   "severity": 0.35000000000000003,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.5507200190004369,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.0537988599990058,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.2088775200008968,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 1.1810739100001229,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    }
+   },
+   "stale_violation_rate": 1.0,
+   "validity": {
+    "distinct_argmins": 1,
+    "argmin_migration_rate": 0.0,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 1,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": false,
+   "validity_failures": [
+    "cache is argmin-homogeneous (every entry picks the same config): the ODD population cannot exercise revalidation at all"
+   ]
+  },
+  {
+   "seed": 3,
+   "climatology": "madrid_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.25",
+   "severity": 0.25,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 5,
+     "resolves": 5,
+     "wall_s": 2.4922915719998855,
+     "stages": {
+      "reuse": 0,
+      "cert": 3,
+      "resolve": 5
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 2.825393740000436,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 2.57627073599906,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1200,
+     "solver_calls": 5,
+     "resolves": 5,
+     "wall_s": 1.8178811640009371,
+     "stages": {
+      "reuse": 0,
+      "cert": 3,
+      "resolve": 5
+     }
+    }
+   },
+   "stale_violation_rate": 0.625,
+   "validity": {
+    "distinct_argmins": 1,
+    "argmin_migration_rate": 0.0,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 1,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": false,
+   "validity_failures": [
+    "cache is argmin-homogeneous (every entry picks the same config): the ODD population cannot exercise revalidation at all"
+   ]
+  },
+  {
+   "seed": 3,
+   "climatology": "madrid_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.45",
+   "severity": 0.45000000000000007,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 3.1559211390012933,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 3.003871799999615,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 3.430252203999771,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 3.417490572001043,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    }
+   },
+   "stale_violation_rate": 1.0,
+   "validity": {
+    "distinct_argmins": 1,
+    "argmin_migration_rate": 0.0,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 1,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": false,
+   "validity_failures": [
+    "cache is argmin-homogeneous (every entry picks the same config): the ODD population cannot exercise revalidation at all"
+   ]
+  },
+  {
+   "seed": 3,
+   "climatology": "madrid_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.30",
+   "severity": 0.3,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 0.375,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 3.2724182670008304,
+     "stages": {
+      "reuse": 0,
+      "cert": 5,
+      "resolve": 3
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 720,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 2.8284352580012637,
+     "stages": {
+      "reuse": 5,
+      "cert": 0,
+      "resolve": 3
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 3.47457984599896,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 720,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 2.6542946620011207,
+     "stages": {
+      "reuse": 5,
+      "cert": 0,
+      "resolve": 3
+     }
+    }
+   },
+   "stale_violation_rate": 0.375,
+   "validity": {
+    "distinct_argmins": 1,
+    "argmin_migration_rate": 0.0,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 1,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": false,
+   "validity_failures": [
+    "cache is argmin-homogeneous (every entry picks the same config): the ODD population cannot exercise revalidation at all"
+   ]
+  },
+  {
+   "seed": 3,
+   "climatology": "madrid_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.55",
+   "severity": 0.55,
+   "scoped": true,
+   "N": 8,
+   "footprint_fraction": 0.375,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 2.9875469250000606,
+     "stages": {
+      "reuse": 0,
+      "cert": 5,
+      "resolve": 3
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 720,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 2.7440066399994976,
+     "stages": {
+      "reuse": 5,
+      "cert": 0,
+      "resolve": 3
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 3.452567612999701,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 720,
+     "solver_calls": 3,
+     "resolves": 3,
+     "wall_s": 2.876547127998492,
+     "stages": {
+      "reuse": 5,
+      "cert": 0,
+      "resolve": 3
+     }
+    }
+   },
+   "stale_violation_rate": 0.375,
+   "validity": {
+    "distinct_argmins": 1,
+    "argmin_migration_rate": 0.0,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 1,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": false,
+   "validity_failures": [
+    "cache is argmin-homogeneous (every entry picks the same config): the ODD population cannot exercise revalidation at all"
+   ]
+  },
+  {
+   "seed": 3,
+   "climatology": "madrid_summer",
+   "track": "B",
+   "backend": "engine",
+   "kind": "II",
+   "label": "reserve=0.55",
+   "severity": 0.55,
+   "scoped": false,
+   "N": 8,
+   "footprint_fraction": 1.0,
+   "strategies": {
+    "naive_recheck": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 5.087966539000263,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "footprint_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 5.044793392000429,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "full_resolve": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 4.429090748000817,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    },
+    "crr": {
+     "energy_evals": 1920,
+     "solver_calls": 8,
+     "resolves": 8,
+     "wall_s": 4.220472097000311,
+     "stages": {
+      "reuse": 0,
+      "cert": 0,
+      "resolve": 8
+     }
+    }
+   },
+   "stale_violation_rate": 1.0,
+   "validity": {
+    "distinct_argmins": 1,
+    "argmin_migration_rate": 0.0,
+    "rail_pinned_fraction": 0.0,
+    "track_b_coupled": true,
+    "track_b_max_rank": 1,
+    "ground_truth_node_limits": 0,
+    "false_certifications": 0,
+    "unsafe_certifications": 0
+   },
+   "validity_ok": false,
+   "validity_failures": [
+    "cache is argmin-homogeneous (every entry picks the same config): the ODD population cannot exercise revalidation at all"
+   ]
+  }
+ ]
+}
